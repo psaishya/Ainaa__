@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'ainaa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fohuuern',
+        'USER': 'fohuuern',
+        'PASSWORD': 'wWZBSHVKOjF4o4tcIF-6krnojR6moiW4',
+        'HOST': 'satao.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
