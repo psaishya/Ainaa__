@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-// import CSRFToken from './csrftoken';
-
+// import { Navigate } from "react-router-dom";
+import CSRFToken from './Csrftoken';
+// import {useNavigate} from 'react-router-dom';
 export default class SignupPage extends Component {
   constructor(props) {
     super(props); 
@@ -9,6 +10,7 @@ export default class SignupPage extends Component {
       lastname: "",
       gender: "",
       email: "",
+      username:"",
       password: "",
     }
     
@@ -20,13 +22,14 @@ export default class SignupPage extends Component {
     this.setState({[event.target.name]:event.target.value})
   }
   handleSubmit(event){
-    const{firstname,lastname,gender,email,password}=this.state
+    const{firstname,lastname,gender,email,username,password}=this.state
     event.preventDefault()
     alert(` Your details
     FirstName:${firstname}
     LastName:${lastname}
     Gender:${gender}
     Email:${email}
+    UserName:${username}
     Password:${password}`)
     console.log('hello');
 
@@ -38,13 +41,17 @@ export default class SignupPage extends Component {
             lastName:this.state.lastname,
             gender:this.state.gender,
             email:this.state.email,
+            userName:this.state.username,
             password:this.state.password
 
         })
     };
+    // const navigate = useNavigate();
     fetch('/api/signup',requestOptions).then((response)=>response.json()).then((data)=>console.log(data));
     console.log('hello');
+     
   }
+  
   render() {
     return (
       <div>
@@ -54,7 +61,7 @@ export default class SignupPage extends Component {
             <h1>Registration form </h1>
           </center>
           <form action="#" method="post" onSubmit={this.handleSubmit}>
-            {/* <CSRFToken/> */}
+            <CSRFToken/>
             {/* {% csrf_token %}
             {% load static %} */}
             <center>
@@ -66,7 +73,7 @@ export default class SignupPage extends Component {
                   <b>First Name : </b>
                 </label>
                 <input
-                  value={this.state.firstn}
+                  value={this.state.firstname}
                   onChange={this.handleChange}
                   type="text"
                   placeholder="Enter your first name"
@@ -78,7 +85,7 @@ export default class SignupPage extends Component {
                   <b>Last Name :</b>
                 </label>
                 <input
-                  value={this.state.lastn}
+                  value={this.state.lastname}
                   onChange={this.handleChange}
                   type="text"
                   placeholder="Enter your last name"
@@ -111,6 +118,18 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
+                <label htmlfor="username">
+                  <b>Username : </b>
+                </label>
+                <input
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                  type="text"
+                  placeholder="Enter your user name"
+                  name="username"
+                  required
+                />
+                <br/>
                 <label htmlfor="password">
                   <b>Password : </b>
                 </label>

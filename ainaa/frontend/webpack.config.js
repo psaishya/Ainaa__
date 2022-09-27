@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -22,11 +23,13 @@ module.exports = {
     minimize: true,
   },
   plugins: [ 
-    new webpack.DefinePlugin({
-      "process.env": {
-        // This has effect on the react lib size
-        NODE_ENV: JSON.stringify("production"),
-      },
-    }),
+    new webpack.SourceMapDevToolPlugin({})
+    ////////////////88888888888888888commented tala ko
+    // new webpack.DefinePlugin({
+    //   "process.env": {
+    //     // This has effect on the react lib size
+    //     NODE_ENV: JSON.stringify("production"),
+    //   },
+    // }),
   ],
 };
