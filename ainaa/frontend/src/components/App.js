@@ -11,7 +11,7 @@ export default class App extends Component {
     render(){
         return (
             
-            <><h1>testing code  hello hello </h1> 
+            <><h1>testing code </h1> 
              <HomePage/>
              {/* <LoginPage/>
             <SignupPage/> */}

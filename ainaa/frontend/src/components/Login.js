@@ -84,8 +84,6 @@ export default class LoginPage extends Component {
                       required
                     />
                 </div>
-                
-                
                 <div className="notregister" href="#" title="Register here">
                   <a href="/signup">Not registered yet? </a>
                 </div>

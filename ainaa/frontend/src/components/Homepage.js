@@ -12,6 +12,7 @@ import Test2 from './Test2';
 import Test from './Test';
 import { Home } from '@material-ui/icons';
 import Main from './Main';
+import Task from './Task';
 
 
 export default class HomePage extends Component {
@@ -24,13 +25,14 @@ export default class HomePage extends Component {
         <div>
         <Router>
             <Routes>
-                <Route exact path='/' element={<p>This is the ywuijfjioj homepage hugdgnjj vbhskoao t </p>} />
+                <Route exact path='/' element={<p>HomePage </p>} />
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/signup' element={<SignupPage/>}/>
                 <Route path='/home/:username' element={<Mainscreen/>}/>
                 <Route path="/test2" element={<Test2/>}/>
                 <Route path="/test/:username" element={<Test/>}/>
                 <Route path='/main/:usern' element={<Main/>}/>
+                <Route path='/task/:idn' element={<Task/>}/>
 
 
             </Routes>
