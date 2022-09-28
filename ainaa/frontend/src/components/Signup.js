@@ -14,8 +14,8 @@ export default class SignupPage extends Component {
       password: "",
     }
     
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit=this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit=this.handleSubmit.bind(this);
   }
    
   handleChange(event){
@@ -58,18 +58,18 @@ export default class SignupPage extends Component {
         <h2>This is the signup page.</h2>
         <div>
           <center>
-            <h1>Registration form </h1>
+            <h1>Registration form okay</h1>
           </center>
           <form action="#" method="post" onSubmit={this.handleSubmit}>
             <CSRFToken/>
             {/* {% csrf_token %}
             {% load static %} */}
             <center>
-              <div class="container">
+              <div className="container">
                 {/* <div class="imgcontainer">
                     <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar"/>
                 </div> */}
-                <label htmlfor="firstname">
+                <label htmlFor="firstname">
                   <b>First Name : </b>
                 </label>
                 <input
@@ -81,7 +81,7 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlfor="lastname">
+                <label htmlFor="lastname">
                   <b>Last Name :</b>
                 </label>
                 <input
@@ -93,19 +93,19 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlfor="gender">
+                <label htmlFor="gender">
                   <b>Gender : </b>
                 </label>
-                <input type="radio" onClick={this.state.gender='Male'} name="gender" required />
+                <input type="radio" onClick={this.handleChange} name="gender" value="Male" required  />
                 <label>
                   <b>Male</b>
                 </label>
-                <input type="radio" onClick={this.state.gender='Female'} name="gender" required />
+                <input type="radio" onClick={this.handleChange} name="gender" value="Female" required />
                 <label>
                   <b>Female</b>
                 </label>
                 <br />
-                <label htmlfor="email">
+                <label htmlFor="email">
                   <b>Email Id : </b>
                 </label>
                 <input
@@ -118,7 +118,7 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlfor="username">
+                <label htmlFor="username">
                   <b>Username : </b>
                 </label>
                 <input
@@ -130,7 +130,7 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br/>
-                <label htmlfor="password">
+                <label htmlFor="password">
                   <b>Password : </b>
                 </label>
                 <input
