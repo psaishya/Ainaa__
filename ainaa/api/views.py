@@ -2,8 +2,8 @@ from cgitb import lookup
 from django.shortcuts import render
 # from django.http import HttpResponse
 from rest_framework import generics,status
-from .serializers import UserSerializer,SignupSerializer
-from .models import User
+from .serializers import UserSerializer,SignupSerializer,TaskSerializer
+from .models import User,Task
 from rest_framework.views import APIView
 from rest_framework.response import Response
 # Create your views here.
@@ -64,3 +64,21 @@ class SignupView(APIView):
                 
             return Response(UserSerializer(user).data,status=status.HTTP_201_CREATED)
         
+class TaskView(generics.ListAPIView):
+    serializer_class=TaskSerializer
+    queryset=Task.objects.all()
+
+class GetTask(APIView):
+    serializer_class=TaskSerializer
+    lookup_url_kwarg='id'
+    
+    def get(self,request,format=None):
+        id=request.GET.get(self.lookup_url_kwarg)
+        if id!=None:
+            task=Task.objects.filter(id=id)
+            if len(task)>0:
+                data=TaskSerializer(task[0]).data
+                return Response(data,status=status.HTTP_200_OK)
+            return Response({'Bad Request User not found':'Invalid username'},status=status.HTTP_404_NOT_FOUND)
+        
+        return Response({'Bad Request':'username ko parameter not found in request'},status=status.HTTP_404_NOT_FOUND)

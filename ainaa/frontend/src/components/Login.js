@@ -8,7 +8,7 @@ export default class LoginPage extends Component {
   render() {
     return (
       <div>
-        <h2>This is the login page.</h2>
+        <h2> login page.</h2>
         <div class="center">
         <div class="login-form-container">
             <div class="text">LOGIN</div>

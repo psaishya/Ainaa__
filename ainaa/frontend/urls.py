@@ -11,6 +11,7 @@ urlpatterns = [
     path('home/<str:username>',index),
     path('test/<str:username>',index),
     path('main/<str:usern>',index),
+    path('task/<str:idn>',index),
 
 
 ]

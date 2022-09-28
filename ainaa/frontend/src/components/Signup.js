@@ -85,7 +85,7 @@ export default class SignupPage extends Component {
                   <b>Last Name :</b>
                 </label>
                 <input
-                  value={this.state.lastname}
+                  value={""}
                   onChange={this.handleChange}
                   type="text"
                   placeholder="Enter your last name"
