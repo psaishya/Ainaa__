@@ -8,7 +8,7 @@ export default class AddTask extends Component {
     this.state = {
       title: "",
       description: "",
-      complete: "",
+      complete: false,
     
     }
     
