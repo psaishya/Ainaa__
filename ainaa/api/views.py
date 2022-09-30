@@ -159,5 +159,5 @@ class GetTask(APIView):
 
 #     return Response(serializer.data)
 class TaskCreateView(CreateAPIView):
-    queryset=Task.objects.all
     serializer_class=TaskSerializer
+    queryset=Task.objects.all

@@ -85,7 +85,7 @@ export default class AddTask extends Component {
                 <label htmlfor="Complete">
                   <b>Complete : </b>
                 </label>
-                <input type="checkbox" value={this.state.complete} onClick={this.handleChange} name="Complete" />
+                <input type="checkbox" value={this.state.complete} onClick={()=>{(this.state.complete==true)?this.state.complete=false:this.state.complete=true}} name="Complete" />
 
                 <br />
                 <button type="submit" >

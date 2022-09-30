@@ -13,7 +13,7 @@ class SignupSerializer(serializers.ModelSerializer):
        fields = ('firstName','lastName','gender','email','userName','password') 
 
 class TaskSerializer(serializers.ModelSerializer):
-    create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+    # create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
     class Meta:
         model = Task
         fields= ('user','title','description','complete','create')
