@@ -12,6 +12,6 @@ urlpatterns = [
     path('test/<str:username>',index),
     path('main/<str:usern>',index),
     path('task/<str:idn>',index),
-
+    path('create-task',index)
 
 ]

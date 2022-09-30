@@ -14,8 +14,8 @@ export default class SignupPage extends Component {
       password: "",
     }
     
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit=this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit=this.handleSubmit.bind(this)
   }
    
   handleChange(event){
@@ -58,18 +58,18 @@ export default class SignupPage extends Component {
         <h2>This is the signup page.</h2>
         <div>
           <center>
-            <h1>Registration form okay</h1>
+            <h1>Registration form </h1>
           </center>
           <form action="#" method="post" onSubmit={this.handleSubmit}>
             <CSRFToken/>
             {/* {% csrf_token %}
             {% load static %} */}
             <center>
-              <div className="container">
+              <div class="container">
                 {/* <div class="imgcontainer">
                     <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar"/>
                 </div> */}
-                <label htmlFor="firstname">
+                <label htmlfor="firstname">
                   <b>First Name : </b>
                 </label>
                 <input
@@ -81,11 +81,11 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlFor="lastname">
+                <label htmlfor="lastname">
                   <b>Last Name :</b>
                 </label>
                 <input
-                  value={""}
+                  value={this.state.lastname}
                   onChange={this.handleChange}
                   type="text"
                   placeholder="Enter your last name"
@@ -93,19 +93,19 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlFor="gender">
+                <label htmlfor="gender">
                   <b>Gender : </b>
                 </label>
-                <input type="radio" onClick={this.handleChange} name="gender" value="Male" required  />
+                <input type="radio" value="Male" onChange={this.handleChange}name="gender" required />
                 <label>
                   <b>Male</b>
                 </label>
-                <input type="radio" onClick={this.handleChange} name="gender" value="Female" required />
+                <input type="radio" value="Female"onChange={this.handleChange} name="gender" required />
                 <label>
                   <b>Female</b>
                 </label>
                 <br />
-                <label htmlFor="email">
+                <label htmlfor="email">
                   <b>Email Id : </b>
                 </label>
                 <input
@@ -118,7 +118,7 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br />
-                <label htmlFor="username">
+                <label htmlfor="username">
                   <b>Username : </b>
                 </label>
                 <input
@@ -130,11 +130,11 @@ export default class SignupPage extends Component {
                   required
                 />
                 <br/>
-                <label htmlFor="password">
+                <label htmlfor="password">
                   <b>Password : </b>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Enter Password"
                   value={this.state.password}
                   onChange={this.handleChange}

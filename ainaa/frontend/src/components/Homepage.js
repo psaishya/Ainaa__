@@ -10,9 +10,10 @@ import {
   } from "react-router-dom";
 import Test2 from './Test2';
 import Test from './Test';
-import { Home } from '@material-ui/icons';
+import { Add, Home } from '@material-ui/icons';
 import Main from './Main';
 import Task from './Task';
+import AddTask from './Add';
 
 
 export default class HomePage extends Component {
@@ -33,7 +34,7 @@ export default class HomePage extends Component {
                 <Route path="/test/:username" element={<Test/>}/>
                 <Route path='/main/:usern' element={<Main/>}/>
                 <Route path='/task/:idn' element={<Task/>}/>
-
+                <Route path='/create-task' element={<AddTask/>}/>
 
             </Routes>
         </Router>

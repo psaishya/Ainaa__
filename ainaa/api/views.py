@@ -6,6 +6,10 @@ from .serializers import UserSerializer,SignupSerializer,TaskSerializer
 from .models import User,Task
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.generics import(
+    CreateAPIView
+)
 
 # Create your views here.
 # def main(request):
@@ -134,3 +138,26 @@ class GetTask(APIView):
             return Response({'Bad Request User not found':'Invalid username'},status=status.HTTP_404_NOT_FOUND)
         
         return Response({'Bad Request':'username ko parameter not found in request'},status=status.HTTP_404_NOT_FOUND)
+
+#@api_view(['PUT'])
+# def updateTask(request,pk):
+#     data =request.data
+#     task=Task.objects.get(id=pk)
+#     serializer =TaskSerializer(instance=task,data=data)
+
+#     if serializer.is_valid():
+#         serializer.save()
+
+#     return Response(serializer.data)
+
+# @api_view(['POST'])
+# def createTask(request):
+#     serializer=TaskSerializer(data=request.data)
+    
+#     if serializer.is_valid():
+#         serializer.save()
+
+#     return Response(serializer.data)
+class TaskCreateView(CreateAPIView):
+    queryset=Task.objects.all
+    serializer_class=TaskSerializer

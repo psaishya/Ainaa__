@@ -21,7 +21,7 @@ export default function Task() {
   return (
     <div>
       <div>
-      <h1>this is of user {idn}</h1>
+      <h1>this is task {idn}</h1>
       <p>inside main hello now please work</p>
       <p>User:{User}</p>
         <p>Title:{Title}</p>
