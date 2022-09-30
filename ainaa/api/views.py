@@ -34,51 +34,51 @@ class GetUser(APIView):
         
         return Response({'Bad Request':'username ko parameter not found in request'},status=status.HTTP_404_NOT_FOUND)
 
-# class LoginView(APIView):
-#     def post(self,request,format=None):
-#         if not self.request.session.exists(self.request.session.session_key):
-#             self.request.session.create()
-        
-#         userName=request.data.get('userName')
-#         password=request.data.get('password')
-#         if(userName!=None):
-#             user_unc=User.objects.filter(userName=userName)
-#             if len(user_unc)>0:
-#                 user_pwc=User.objects.filter(password=password)
-#                 if len(user_pwc)>0:
-#                     user=user_pwc[0]
-#                     self.request.session['logged_user']=userName
-#                     # return Response(user,status=status.HTTP_200_OK)
-#                     return Response({'message':'You are successfully logged in'},status=status.HTTP_200_OK)
-                
-#                 return Response({'Bad Request':'Password did not match'},status=status.HTTP_400_BAD_REQUEST) 
-             
-#             return Response({'Bad Request':'invalid username'},status=status.HTTP_400_BAD_REQUEST)
-        
-#         return Response({'Bad Request':'invalid post data didnot find user'},status=status.HTTP_400_BAD_REQUEST)
-        
 class LoginView(APIView):
-    lookup_url_kwarg='userName'
-
     def post(self,request,format=None):
         if not self.request.session.exists(self.request.session.session_key):
             self.request.session.create()
         
-        userName = request.data.get(self.lookup_url_kwarg)
-        # password=request.data.get('password')
+        userName=request.data.get('userName')
+        password=request.data.get('password')
         if(userName!=None):
             user_unc=User.objects.filter(userName=userName)
             if len(user_unc)>0:
-                user=user_unc[0]
-                self.request.session['logged_user']=userName
-                return Response(user,status=status.HTTP_200_OK)
-                # return Response({'message':'You are successfully logged in'},status=status.HTTP_200_OK)
+                user_pwc=User.objects.filter(password=password)
+                if len(user_pwc)>0:
+                    user=user_pwc[0]
+                    self.request.session['logged_user']=userName
+                    # return Response(user,status=status.HTTP_200_OK)
+                    return Response({'message':'You are successfully logged in'},status=status.HTTP_200_OK)
                 
-                # return Response({'Bad Request':'Password did not match'},status=status.HTTP_400_BAD_REQUEST) 
+                return Response({'Bad Request':'Password did not match'},status=status.HTTP_400_BAD_REQUEST) 
              
             return Response({'Bad Request':'invalid username'},status=status.HTTP_400_BAD_REQUEST)
         
         return Response({'Bad Request':'invalid post data didnot find user'},status=status.HTTP_400_BAD_REQUEST)
+        
+# class LoginView(APIView):
+#     lookup_url_kwarg='userName'
+
+#     def post(self,request,format=None):
+#         if not self.request.session.exists(self.request.session.session_key):
+#             self.request.session.create()
+        
+#         userName = request.data.get(self.lookup_url_kwarg)
+#         # password=request.data.get('password')
+#         if(userName!=None):
+#             user_unc=User.objects.filter(userName=userName)
+#             if len(user_unc)>0:
+#                 user=user_unc[0]
+#                 self.request.session['logged_user']=userName
+#                 # return Response(user,status=status.HTTP_200_OK)
+#                 return Response({'message':'You are successfully logged in'},status=status.HTTP_200_OK)
+                
+#                 # return Response({'Bad Request':'Password did not match'},status=status.HTTP_400_BAD_REQUEST) 
+             
+#             return Response({'Bad Request':'invalid username'},status=status.HTTP_400_BAD_REQUEST)
+        
+#         return Response({'Bad Request':'invalid post data didnot find user'},status=status.HTTP_400_BAD_REQUEST)
                 
     
     
