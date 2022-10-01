@@ -8,7 +8,7 @@ export default class AddTask extends Component {
     this.state = {
       title: "",
       description: "",
-      complete: false,
+      //complete: false,
     
     }
     
@@ -25,7 +25,7 @@ export default class AddTask extends Component {
     alert(` Your details
     Title:${title}
     Description:${description}
-    Complete:${complete.toString()}
+  
     `)
     console.log('hello');
 
@@ -35,7 +35,7 @@ export default class AddTask extends Component {
         body:JSON.stringify({
             title:this.state.title,
             description:this.state.description,
-            complete:this.state.complete,
+            //complete:this.state.complete,
         })
     };
     // const navigate = useNavigate();
@@ -81,13 +81,13 @@ export default class AddTask extends Component {
                   name="description"
                   required
                 />
-                <br />
+                {/* <br />
                 <label htmlfor="Complete">
                   <b>Complete : </b>
                 </label>
-                <input type="checkbox" value={this.state.complete} onClick={this.handleChange} name="Complete" />
+                <input type="checkbox" value={false} onClick={true} name="Complete" />
 
-                <br />
+                <br /> */}
                 <button type="submit" >
                   <b>Add</b>
                 </button>

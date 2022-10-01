@@ -10,6 +10,8 @@ from rest_framework.decorators import api_view
 from rest_framework.generics import(
     CreateAPIView
 )
+from . import models
+from rest_framework import permissions
 
 # Create your views here.
 # def main(request):
@@ -161,3 +163,14 @@ class GetTask(APIView):
 class TaskCreateView(CreateAPIView):
     queryset=Task.objects.all
     serializer_class=TaskSerializer
+
+
+class UserList(generics.ListCreateAPIView):
+    queryset=models.User.objects.all()
+    serializer_class=UserSerializer
+    permission_classes=[permissions.IsAuthenticated]
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset=models.User.objects.all()
+    serializer_class=UserSerializer
+    permission_classes=[permissions.IsAuthenticated]

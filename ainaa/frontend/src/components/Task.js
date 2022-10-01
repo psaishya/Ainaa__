@@ -10,7 +10,7 @@ export default function Task() {
     const[Create,setCreate] = useState("");
     let {idn}=useParams();
     function getTaskDetails(){
-      fetch('/api/get-task'+'?id='+idn).then((Response)=>Response.json()).then((data)=>{
+      fetch('/api/Usar'+'?id='+idn).then((Response)=>Response.json()).then((data)=>{
         setUser(data.user),
         setTitle(data.title),
         setDescription(data.description),

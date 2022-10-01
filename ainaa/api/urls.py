@@ -1,9 +1,13 @@
 from django.urls import path
 # from .views import main
-from .views import GetTask, UserView,SignupView,GetUser,TaskView,LoginView,TaskCreateView #updateTask
+from . import views
+from .views import GetTask, UserView,SignupView,GetUser,TaskView,LoginView,TaskCreateView#updateTask
 
 urlpatterns = [
     # path('home',main)
+    path('Usar',views.UserList.as_view()),
+    path('Usar/<int:pk>/',views.UserDetail.as_view()),
+
     path('user',UserView.as_view()),
     path('signup',SignupView.as_view()),
     path('get-user',GetUser.as_view()),

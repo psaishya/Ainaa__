@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import LoginPage from './Login';
 import SignupPage from './Signup';
 import Mainscreen from './Home';
+import Home from './Home'
 // import {BrowserRouter as Router,Routes,Route,Link,Redirect, }from "react-router-dom";
 import {
     BrowserRouter as Router,
@@ -10,10 +11,11 @@ import {
   } from "react-router-dom";
 import Test2 from './Test2';
 import Test from './Test';
-import { Add, Home } from '@material-ui/icons';
+//import { Add, Home } from '@material-ui/icons';
 import Main from './Main';
 import Task from './Task';
 import AddTask from './Add';
+import Header from './Header';
 
 
 export default class HomePage extends Component {
@@ -26,7 +28,7 @@ export default class HomePage extends Component {
         <div>
         <Router>
             <Routes>
-                <Route exact path='/' element={<p>HomePage </p>} />
+                <Route exact path='/' element={<Main/>} />
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/signup' element={<SignupPage/>}/>
                 <Route path='/home/:username' element={<Mainscreen/>}/>

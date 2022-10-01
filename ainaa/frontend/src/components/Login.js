@@ -2,9 +2,14 @@ import React from 'react'
 import CSRFToken from './Csrftoken';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
 
 
 export default function Login() {
+  useEffect(()=>{
+      document.title='Login';
+  });
+
   const[username,setUsername] = useState("");
   const[password,setPassword] = useState("");
   const handleChangeu=(event)=>{
@@ -32,7 +37,7 @@ export default function Login() {
           })
         };
         // // fetch('/api/login',requestOptions).then((response)=>response.json()).then((data)=>console.log(data));
-        fetch("api/login",requestOptions).then((Response)=>{
+        fetch("api/Usar",requestOptions).then((Response)=>{
           if(Response.ok){
             alert('yahoo');
             navigate(`/main/${username}`);
@@ -49,57 +54,99 @@ export default function Login() {
     
       }
   return (
-    <div>
-           <div>
-       <h2>This is the login page. new login page again again</h2>
-        <div className="center">
-        <div className="login-form-container">
-             <div className="text">LOGIN</div>
-             <form action="#" method="post" id="formforlogin" onSubmit={loginbuttonpressed}>
-               <CSRFToken/>
+    // <div>
+    //        <div>
+    //    <h2>This is the login page. new login page again again</h2>
+    //     <div className="center">
+    //     <div className="login-form-container">
+    //          <div className="text">LOGIN</div>
+    //          <form action="#" method="post" id="formforlogin" onSubmit={loginbuttonpressed}>
+    //            <CSRFToken/>
               
-               {/* {% csrf_token %} 
-               {% load static %} */}
-                <div className="input-data">
-                     <label htmlFor= "username">
-                      <b>User Name : </b>
-                     </label>
-                     <input
-                      value={username}
-                      onChange={handleChangeu}
-                      type="text"
-                      placeholder="Enter your user name"
-                      name="username"
-                      required
-                    />
-                </div>
+    //            {/* {% csrf_token %} 
+    //            {% load static %} */}
+    //             <div className="input-data">
+    //                  <label htmlFor= "username">
+    //                   <b>User Name : </b>
+    //                  </label>
+    //                  <input
+    //                   value={username}
+    //                   onChange={handleChangeu}
+    //                   type="text"
+    //                   placeholder="Enter your user name"
+    //                   name="username"
+    //                   required
+    //                 />
+    //             </div>
                 
-                <div className="input-data">
-                    <label htmlFor ="password">
-                      <b>Password : </b>
-                    </label>
-                    <input
-                      value={password}
-                      onChange={handleChangep}
-                      type="password"
-                      placeholder="Enter your password"
-                      name="password"
-                      required
-                    />
-                </div>
-                <div className="notregister" href="#" title="Register here">
-                  <a href="/signup">Not registered yet? </a>
-                </div>
+    //             <div className="input-data">
+    //                 <label htmlFor ="password">
+    //                   <b>Password : </b>
+    //                 </label>
+    //                 <input
+    //                   value={password}
+    //                   onChange={handleChangep}
+    //                   type="password"
+    //                   placeholder="Enter your password"
+    //                   name="password"
+    //                   required
+    //                 />
+    //             </div>
+    //             <div className="notregister" href="#" title="Register here">
+    //               <a href="/signup">Not registered yet? </a>
+    //             </div>
                 
-                <div className="btn">
-                    <div className="insidebtn">
-                        <button type="submit" ><b>Login</b></button><br />
+    //             <div className="btn">
+    //                 <div className="insidebtn">
+    //                     <button type="submit" ><b>Login</b></button><br />
                         
-                   </div>
-                </div>
-            </form>
+    //                </div>
+    //             </div>
+    //         </form>
+    //     </div>
+    // </div>
+    //   </div>
+    // </div>
+// {newlogin}
+
+    <div className='container mt-4'>
+      <div className='row'>
+        <div className='col-6 offset-3'>
+          <div className='card'>
+            <h3 className='card-header'>User Login</h3>
+            <div className='card-body'>
+            <form action="#" method="post" id="formforlogin" onSubmit={loginbuttonpressed}>
+            <CSRFToken/>
+                      <div className="mb-3">
+                        <label for="exampleInputUsername">UserName</label>
+                        <input value={username}
+                              type="text"
+                            onChange={handleChangeu}
+                            className="form-control" />
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input value={password}
+                            type="password"
+                            onChange={handleChangep} 
+                           className="form-control" />
+                      </div>
+                      
+                      
+                      {/* <div class="form-check">
+                        <input type="checkbox" className="form-check-input" id="exampleCheck1">
+                        <label className="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div> */}
+
+                      <button type="submit" className="btn btn-primary">Login</button>
+
+                      <div className="notregister" href="#" title="Register here">
+                            <a href="/signup">Not registered yet? </a>
+                      </div>
+                    </form>
+            </div>
+          </div>
         </div>
-    </div>
       </div>
     </div>
   )
