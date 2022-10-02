@@ -2,7 +2,10 @@ import React from "react";
 import { useEffect,useState } from 'react';
 import axios from "axios";
 
+localStorage.setItem('userLoginStatus',null)
 export default function Login() {
+  const [loginstatus,setloginstatus]=useState();
+  const [userLoginStatus,setuserloginstatus]=useState();
   const [loginData,setLoginData]=useState(
     {
       'userName':'',
@@ -17,7 +20,7 @@ export default function Login() {
   }
   const submitForm=(event)=>{
     console.log(loginData);
-    alert(loginData);
+    // alert(loginData);
     const loginFormData=new FormData;
     loginFormData.append('userName',loginData.userName)
     loginFormData.append('password',loginData.password)
@@ -27,19 +30,40 @@ export default function Login() {
         console.log(response.data);
         if(response.data.bool==true){
           localStorage.setItem('userLoginStatus',true)
+          window.location.href='/homepage';
+
+          // setuserloginstatus(localStorage.getItem('userLoginStatus'));
+          
+          // setloginstatus('true'); ////////////kaam chalau wala
+        }
+        else{
+          localStorage.setItem('userLoginStatus',false)
+          alert("Could not login");
         }
       });
     }
     catch(error){
       console.log(error);
-
     }
-    
+  // setuserloginstatus(localStorage.getItem('userLoginStatus'));
+  // console.log(userLoginStatus);
+  // if(userLoginStatus=='true'){
+  //   window.location.href='/homepage';
+  // }
+  // else{
+  //   alert("Could not login");
+  // }
+  //  }
+  
   }
-  const userLoginStatus=localStorage.getItem('userLoginStatus')
-  if(userLoginStatus=='true'){
-    window.location.href='/homepage';
-  }
+  
+  // 
+  ////////////////kaam chalau method
+  // if(loginstatus=='true'){
+  //   window.location.href='/homepage';
+  // }
+////////////////////
+  
   return (
     <>
       <div className="container mt-4">
