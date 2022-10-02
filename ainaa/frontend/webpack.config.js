@@ -17,6 +17,29 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      
+      
+      {
+        test: /\.(sass|css|scss)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: "postcss-loader",
+  
+          },
+          'sass-loader',
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+      }
     ],
   },
   optimization: {

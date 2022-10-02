@@ -1,20 +1,17 @@
 import React,{Component} from 'react';
 import {render} from "react-dom";
-import HomePage from './homepage';
-// import LoginPage from './Login';
-// import SignupPage from './Signup';
+import Main from './Main';
 
 export default class App extends Component {
     constructor(props){
         super(props);
     }
-    render(){
+    render(){  
         return (
             
-            <><h1>testing code </h1> 
-             <HomePage/>
-             {/* <LoginPage/>
-            <SignupPage/> */}
+            <>
+             <Main/>
+            
              
               </>
             

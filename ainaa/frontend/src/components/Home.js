@@ -1,42 +1,50 @@
-import React, { Component } from 'react'
-import { useParams } from 'react-router-dom';
-// import { withRouter } from "react-router";
+import React from 'react';
+// import Lando from "../img/naruto-37656.png";
+import Lando from "../images/Lando.png"; 
+document.body.style.color='red';
 
-export default class Mainscreen extends Component {
-  constructor(props){
-    super(props)
-  
-  this.state={
-    firstname:'hello',
-    lastname: "",
-    gender: "",
-    email: "",
-    username:"",
-    password: "",
-
-  };
-  const username=useParams();
-  this.username=this.props.match.params.username;
-  // console.log(this.props.match.params.username);
-  }
-  // myfunc(){
-  //   let {usernames}=useParams()
-  // }
-  // let {username}=useParams()
-    render() {
-    return (
-      <div>
-        <p>inside main</p>
-        {/* <p>{username}</p> */}
-        {/* <p>{this.username}</p> */}
-        <p>FirstName:{this.state.firstname}</p>
-        <p>LastName:{this.state.lastname}</p>
-        <p>Gender:{this.state.gender}</p>
-        <p>Email:{this.state.email}</p>
-        <p>UserName:{this.state.username}</p>
-        <p>Password:{this.state.password}</p>
-        <h2>he usrnamenis {username}</h2>
+export default function Home() {
+  return (
+    <div className="container">  
+      <div className='container mt-4'>
+      <h3 className='pb-1 mb-4'>Welcome to Aainaa where you can</h3>
+      <div className='row'>
+        <div className='col-md-3'>
+        <div className="card">
+          <img className="card-img-top" src={Lando} alt="Card image cap"/>
+          <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+          </div>
+        </div>
+        </div>
+        <div className='col-md-3'>
+        <div className="card">
+          <img className="card-img-top" src={Lando} alt="Card image cap"/>
+          <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+          </div>
+        </div>
+        </div>
+        <div className='col-md-3'>
+        <div className="card">
+          <img className="card-img-top" src={Lando} alt="Card image cap"/>
+          <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+          </div>
+        </div>
+        </div>
+        <div className='col-md-3'>
+        <div className="card">
+          <img className="card-img-top" src={Lando} alt="Card image cap"/>
+          <div className="card-body">
+            <h5 className="card-title">Card title</h5>
+          </div>
+        </div>
+        </div>
       </div>
-    )
-  }
+
+      
+    </div>
+    </div>
+  )
 }

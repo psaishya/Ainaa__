@@ -12,6 +12,9 @@ class User(models.Model):
     userName=models.CharField( max_length=50,default="",unique=TRUE)
     password=models.CharField(max_length=20,default="")
 
+    class Meta:
+        verbose_name_plural="1. Users"
+        
 class Task(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
     title=models.CharField(max_length=200)
@@ -25,3 +28,4 @@ class Task(models.Model):
 
     class Meta:
         ordering=['complete']
+        verbose_name_plural="2. Tasks"
