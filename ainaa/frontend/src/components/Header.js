@@ -1,6 +1,8 @@
 import React from 'react';
 export default function Header(props) {
-  return (
+  const userLoginStatus=localStorage.getItem('userLoginStatus');
+return (
+  
     <div>
       <nav className={`navbar navbar-expand-lg navbar-dark bg-dark` }>
         <div className="container-fluid">
@@ -20,9 +22,25 @@ export default function Header(props) {
             <li className="nav-item">
             <a className="nav-link" href="#">Features</a>
             </li>
-            <li className="nav-item">
+            <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Options
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
+                  {userLoginStatus!='true' &&
+                  <><li><a className="dropdown-item" href="/login">Login</a></li>
+                  <li><a className="dropdown-item" href="/signup">Signup</a></li>
+                  </>
+                }
+                {userLoginStatus=='true' &&
+                  <><li><a className="dropdown-item" href="/logout">Logout</a></li></>
+                }
+                </ul>
+              </li>
+            {/* <li className="nav-item">
             <a className="nav-link" href="/login">Login</a>
-            </li>
+            </li> */}
         
         </ul>
         </div>
