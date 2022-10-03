@@ -2,10 +2,9 @@ import React from "react";
 import { useEffect,useState } from 'react';
 import axios from "axios";
 
-localStorage.setItem('userLoginStatus',null)
+// localStorage.setItem('userLoginStatus',null)
 export default function Login() {
-  const [loginstatus,setloginstatus]=useState();
-  const [userLoginStatus,setuserloginstatus]=useState();
+  
   const [loginData,setLoginData]=useState(
     {
       'userName':'',
@@ -30,6 +29,7 @@ export default function Login() {
         console.log(response.data);
         if(response.data.bool==true){
           localStorage.setItem('userLoginStatus',true)
+          console.log(localStorage.getItem('userLoginStatus'));
           window.location.href='/homepage';
 
           // setuserloginstatus(localStorage.getItem('userLoginStatus'));

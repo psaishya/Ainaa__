@@ -12,6 +12,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Test from './Test';
 import Homepage from './Homepage';
+import Logout from './Logout';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -44,6 +45,7 @@ export default function Main() {
                 <Route exact path='/' element={ <Home/>}/>
                 <Route exact path='/about' element={ <About/>}/>
                 <Route exact path='/login' element={ <Login/>}/>
+                <Route exact path='/logout' element={ <Logout/>}/>
                 <Route exact path='/signup' element={ <Signup/>}/>
                 <Route exact path='/test' element={ <Test/>}/>
                 <Route exact path='/homepage' element={ <Homepage/>}/>
