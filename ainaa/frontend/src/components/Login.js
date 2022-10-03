@@ -4,6 +4,10 @@ import axios from "axios";
 
 localStorage.setItem('userLoginStatus',null)
 export default function Login() {
+  useEffect(()=>{
+    document.title='Login';
+  });
+
   const [loginstatus,setloginstatus]=useState();
   const [userLoginStatus,setuserloginstatus]=useState();
   const [loginData,setLoginData]=useState(
@@ -12,6 +16,7 @@ export default function Login() {
       'password':'',
     }
   );
+  const[errorMsg,seterrorMsg]=useState('');
   const handleChange=(event)=>{
     setLoginData({
       ...loginData,
@@ -38,7 +43,8 @@ export default function Login() {
         }
         else{
           localStorage.setItem('userLoginStatus',false)
-          alert("Could not login");
+          // alert("Could not login");
+          seterrorMsg('Invalid Username or Password')
         }
       });
     }
@@ -72,6 +78,7 @@ export default function Login() {
             <div className="card">
               <h3 className="card-header">User Login</h3>
               <div className="card-body">
+                {errorMsg&&<p className="text-danger">{errorMsg}</p>}
                 <form>
                 <div className="mb-3">
                         <label htmlFor="exampleInputUsername">UserName</label>

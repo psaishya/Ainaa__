@@ -23,8 +23,11 @@ def userlogin(request):
     userName=request.POST["userName"]
     password=request.POST["password"]
     queryset=models.User.objects.all() 
-    userdata=queryset.filter(userName=userName,password=password)
+    try:
+        userdata=queryset.filter(userName=userName,password=password)
     # userdata =models.User.objects.get(userName=userName,password=password)
+    except models.User.DoesNotExist:
+        userdata=None
     if userdata:
         return JsonResponse({'bool':True})
     else:
