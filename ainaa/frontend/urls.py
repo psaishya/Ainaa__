@@ -11,7 +11,8 @@ urlpatterns = [
     path('signup',index),
     path('test',index),
     path('homepage',index),
-
+    path('updateprofile',index),
+    path('profile',index),
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
     # path('main/<str:usern>',index),

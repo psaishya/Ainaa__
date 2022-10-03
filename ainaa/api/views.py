@@ -32,3 +32,15 @@ def userlogin(request):
         return JsonResponse({'bool':True})
     else:
         return JsonResponse({'bool':False})
+ 
+# class LoggedUser(generics.ListCreateAPIView):
+#     queryset=models.User.objects.all() 
+#     serializer_class=UserSerializer  
+@csrf_exempt     
+def Loggeduser(request):
+    queryset=models.User.objects.all() 
+    userName=request.POST["userName"]
+    userdata=queryset.filter(userName=userName)
+    if userdata:
+        # return JsonResponse(userdata,safe=false)
+        return JsonResponse({'id':userdata[0].userId})

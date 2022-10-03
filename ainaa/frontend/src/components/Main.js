@@ -13,6 +13,8 @@ import Signup from './Signup';
 import Test from './Test';
 import Homepage from './Homepage';
 import Logout from './Logout';
+import UpdateProfile from './UpdateProfile';
+import UserProfile from './UserProfile';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -49,7 +51,8 @@ export default function Main() {
                 <Route exact path='/signup' element={ <Signup/>}/>
                 <Route exact path='/test' element={ <Test/>}/>
                 <Route exact path='/homepage' element={ <Homepage/>}/>
-
+                <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>
+                <Route exact path='/profile' element={ <UserProfile/>}/>
             </Routes>
         </Router>
       <Footer/>

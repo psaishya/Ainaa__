@@ -13,6 +13,8 @@ urlpatterns = [
     # #path('update-task',updateTask.as_view()),
     path('user/',views.UserList.as_view()),
     path('user/<int:pk>/',views.UserDetail.as_view()),
-    path('userlogin',views.userlogin)
+    path('userlogin',views.userlogin),
+    # path('user/<slug:userName>/',views.LoggedUser.as_view()),
+    path('loggeduser',views.Loggeduser),
 
 ]

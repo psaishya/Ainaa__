@@ -24,15 +24,32 @@ export default function Login() {
     const loginFormData=new FormData;
     loginFormData.append('userName',loginData.userName)
     loginFormData.append('password',loginData.password)
+
+    const loggedFormData=new FormData;
+    loggedFormData.append('userName',loginData.userName)
+
     event.preventDefault();
+    
+
     try{
       axios.post('/api/userlogin',loginFormData).then((response)=>{
         console.log(response.data);
         if(response.data.bool==true){
           localStorage.setItem('userLoginStatus',true)
           console.log(localStorage.getItem('userLoginStatus'));
-          window.location.href='/homepage';
 
+          axios.post('/api/loggeduser',loggedFormData).then((response)=>{
+          const id=response.data.id;
+          localStorage.setItem('loggeduser',id);
+          console.log(localStorage.getItem('loggeduser'));
+
+          window.location.href='/homepage';
+          
+          event.preventDefault();
+          
+        } );  
+  
+          
           // setuserloginstatus(localStorage.getItem('userLoginStatus'));
           
           // setloginstatus('true'); ////////////kaam chalau wala
@@ -42,6 +59,8 @@ export default function Login() {
           // alert("Could not login");
           seterrorMsg('Invalid Username or Password')
         }
+        
+        
       });
     }
     catch(error){
@@ -57,6 +76,8 @@ export default function Login() {
   // }
   //  }
   
+       
+    
   }
   
   // 

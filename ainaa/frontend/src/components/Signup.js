@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
-const baseurl='/api/user/'
 export default function Signup() {
   useEffect(()=>{
     document.title='Signup';
