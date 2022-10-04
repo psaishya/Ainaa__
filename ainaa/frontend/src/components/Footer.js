@@ -50,7 +50,6 @@ function Footer() {
   </div>
   <ul className="list-group list-group-flush">
     <li className="list-group-item">Shubhashish Karki</li>
-    
     <li className="list-group-item">Sadikshya Pokharel</li>
     <li className="list-group-item">Soniya Sharma</li>
     <li className="list-group-item">Janak Sitaula</li>

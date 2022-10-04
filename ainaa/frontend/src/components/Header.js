@@ -6,7 +6,12 @@ return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-dark bg-dark` }>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/"><b>Ainaa</b></a>
+          <a className="navbar-brand" href="/"><b><img
+              src="https://i.im.ge/2022/10/03/1KXPIp.logo2.md.png"
+              alt="Aaina"
+              width= "200px"
+              height= "100px"
+      /></b></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
         </button>  
