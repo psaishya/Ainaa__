@@ -17,7 +17,7 @@ export default function Sidebar() {
             <div className='list-group list-group-flush'>
               <a href='/profile' className='list-group-item list gropu-item-action'><CgProfile/> Profile</a>
               <a href='#' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Aaina</a>
-              <a href='#' className='list-group-item list gropu-item-action'><MdOutlineAddTask/> Goals</a>
+              <a href='/viewtasks' className='list-group-item list gropu-item-action'><MdOutlineAddTask/> Goals</a>
               <a href='#' className='list-group-item list gropu-item-action'><BsFillJournalBookmarkFill/> Journal</a>
               <a href='#' className='list-group-item list gropu-item-action'><IoIosNotifications/> Notifications <span className ="float-end badge bg-danger mt-1">123</span></a>
             </div>

@@ -42,7 +42,7 @@ export default function UserProfile() {
             </aside>
             <section className='col-md-9'>
                 <div className='card'>
-                <h1 className='card-header'>Your Info Profile </h1>
+                <h1 className='card-header'>Your Profile Info </h1>
                 <div className='card-body'>
                 <div className="mb-3 row">
                     <label htmlFor="firstName" className="col-sm-2 col-form-label">FirstName</label>

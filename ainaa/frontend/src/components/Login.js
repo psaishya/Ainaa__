@@ -43,7 +43,7 @@ export default function Login() {
           localStorage.setItem('loggeduser',id);
           console.log(localStorage.getItem('loggeduser'));
 
-          window.location.href='/homepage';
+          window.location.href='/dashboard';
           
           event.preventDefault();
           

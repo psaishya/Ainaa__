@@ -13,6 +13,8 @@ urlpatterns = [
     path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
+    path('viewtasks',index), 
+
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
     # path('main/<str:usern>',index),

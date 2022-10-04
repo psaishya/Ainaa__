@@ -16,6 +16,7 @@ import UpdateProfile from './UpdateProfile';
 import UserProfile from './UserProfile';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
+import ViewTasks from './ViewTasks';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -55,6 +56,7 @@ export default function Main() {
                 {/* <Route exact path='/homepage' element={ <Sidebar/>}/> */}
                 <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>
                 <Route exact path='/profile' element={ <UserProfile/>}/>
+                <Route exact path='/viewtasks' element={ <ViewTasks/> }/>
             </Routes>
         </Router>
       <Footer/>
