@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { useState,useEffect } from 'react';
+import Sidebar from './Sidebar';
 
 export default function UserProfile() {
     const loggeduser=localStorage.getItem('loggeduser');
@@ -36,6 +37,9 @@ export default function UserProfile() {
   
     <div className='container mt-4'>
         <div className='row'>
+            <aside className='col-md-3'>
+                <Sidebar/>
+            </aside>
             <section className='col-md-9'>
                 <div className='card'>
                 <h1 className='card-header'>Your Info Profile </h1>

@@ -11,11 +11,12 @@ import About from './About';
 import Login from './Login';
 import Signup from './Signup';
 import Test from './Test';
-import Homepage from './Homepage';
 import Logout from './Logout';
 import UpdateProfile from './UpdateProfile';
 import UserProfile from './UserProfile';
 import AddGoals from './AddGoals';
+import Sidebar from './Sidebar';
+import Dashboard from './Dashboard';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -51,7 +52,8 @@ export default function Main() {
                 <Route exact path='/logout' element={ <Logout/>}/>
                 <Route exact path='/signup' element={ <Signup/>}/>
                 <Route exact path='/test' element={ <Test/>}/>
-                <Route exact path='/homepage' element={ <Homepage/>}/>
+                <Route exact path='/dashboard' element={ <Dashboard/>}/>
+                {/* <Route exact path='/homepage' element={ <Sidebar/>}/> */}
                 <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>
                 <Route exact path='/profile' element={ <UserProfile/>}/>
                 <Route exact path='/addgoals' element={<AddGoals/>}/>

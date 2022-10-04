@@ -1,11 +1,12 @@
 import React from 'react';
+import Sidebar from './Sidebar';
 
 export default function AddGoals(){
     return(
         <div className="container mt-4">
             <div className="row">
                 <aside className="col-md-3">
-
+                    <Sidebar/>
                 </aside>
                 <section className="col-md-9">
                     <div className='card' >
