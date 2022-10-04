@@ -17,5 +17,7 @@ urlpatterns = [
     # path('user/<slug:userName>/',views.LoggedUser.as_view()),
     path('loggeduser',views.Loggeduser),
     path('task/',views.TaskList.as_view()),
-    path('tasktime/',views.TaskTime.as_view()),
+    path('tasktime/<int:pk>/',views.TaskTime.as_view()),
+    path('usertask/<int:userId>',views.UserTask.as_view()),
+
 ]

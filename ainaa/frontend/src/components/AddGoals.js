@@ -123,7 +123,7 @@ export default function AddGoals(){
                                     </div>
                                 </fieldset>
                          
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <div className="col-sm-2">Complete</div>
                                     <div className="col-sm-10">
                                     <div className="form-check">
@@ -133,7 +133,8 @@ export default function AddGoals(){
                                         </label>
                                     </div>
                                     </div>
-                                </div>
+                                </div> */}
+                                <hr/>
                                 <div className="mb-3">
                                     <div className="col-sm-10">
                                     <button type="submit" className="btn btn-primary" onClick={addTask}>Add</button>
@@ -142,6 +143,7 @@ export default function AddGoals(){
                             
                         </div>
                     </div>    
+                    <a href='/viewgoals'>View your goals.</a>
                 </section>
             </div>
         </div>

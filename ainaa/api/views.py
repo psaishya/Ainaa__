@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-from .serializers import UserSerializer,TaskSerializer,TimeSerializer
+from .serializers import UserSerializer,TaskSerializer,TimeSerializer,Time2Serializer
 from . import models
 # Create your views here.
 class UserList(generics.ListCreateAPIView):
@@ -49,6 +49,16 @@ class TaskList(generics.ListCreateAPIView):
     queryset=models.Task.objects.all() 
     serializer_class=TaskSerializer
 
-class TaskTime(generics.ListAPIView):
+class TaskTime(generics.RetrieveUpdateDestroyAPIView):
     queryset=models.Task.objects.all() 
+    serializer_class=Time2Serializer
+    
+class UserTask(generics.ListCreateAPIView):
     serializer_class=TimeSerializer
+    
+    def get_queryset(self):
+        userId=self.kwargs['userId']
+        user=models.User.objects.get(pk=userId)
+        return models.Task.objects.filter(user=user)
+        
+    
