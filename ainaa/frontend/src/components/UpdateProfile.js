@@ -63,38 +63,38 @@ export default function UpdateProfile() {
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">FirstName</label>
                     <div className="col-sm-10">
-                        <input type="text" className='form-control' onChange={handleChange} name="firstName" value={userData.firstName}  />
+                        <input type="text" className='form-control' onChange={handleChange} name="firstName" value={userData.firstName||""}  />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">LastName</label>
                     <div className="col-sm-10">
-                        <input type="text" className='form-control' onChange={handleChange} name="lastName" value={userData.lastName}  />
+                        <input type="text" className='form-control' onChange={handleChange} name="lastName" value={userData.lastName||""}  />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Gender</label>
                     <div className="col-sm-10">
-                        <input type="text" className='form-control' onChange={handleChange} name="gender" value={userData.gender}  />
+                        <input type="text" className='form-control' onChange={handleChange} name="gender" value={userData.gender||""}  />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input type="text" className='form-control' onChange={handleChange} name="email" value={userData.email}  />
+                        <input type="text" className='form-control' onChange={handleChange} name="email" value={userData.email||""}  />
                     </div>
                 </div>
                 <div className="mb-3 row">
                     <label htmlFor="staticEmail" className="col-sm-2 col-form-label">Username</label>
                     <div className="col-sm-10">
-                        <input type="text" className='form-control' onChange={handleChange} name="userName" value={userData.userName}  />
+                        <input type="text" className='form-control' onChange={handleChange} name="userName" value={userData.userName||""}  />
                     </div>
                 </div>
 
                 <div className="mb-3 row">
                     <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-10">
-                        <input type="password" className="form-control" onChange={handleChange} name="password" value={userData.password} id="inputPassword"/>
+                        <input type="password" className="form-control" onChange={handleChange} name="password" value={userData.password||""} id="inputPassword"/>
                     </div>
                 </div>
                 <hr/>

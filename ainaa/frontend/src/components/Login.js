@@ -4,7 +4,10 @@ import axios from "axios";
 
 // localStorage.setItem('userLoginStatus',null)
 export default function Login() {
-  
+  useEffect(()=>{
+    document.title='Login';
+  });
+
   const [loginData,setLoginData]=useState(
     {
       'userName':'',

@@ -13,8 +13,12 @@ urlpatterns = [
     path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
+<<<<<<< HEAD
     path('viewtasks',index), 
 
+=======
+    path('addgoals',index)
+>>>>>>> 530f180e50890922190394d54d21d00d541b37ed
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
     # path('main/<str:usern>',index),

@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-from .serializers import UserSerializer
+from .serializers import UserSerializer,TaskSerializer,TimeSerializer
 from . import models
 # Create your views here.
 class UserList(generics.ListCreateAPIView):
@@ -44,3 +44,11 @@ def Loggeduser(request):
     if userdata:
         # return JsonResponse(userdata,safe=false)
         return JsonResponse({'id':userdata[0].userId})
+
+class TaskList(generics.ListCreateAPIView):
+    queryset=models.Task.objects.all() 
+    serializer_class=TaskSerializer
+
+class TaskTime(generics.ListAPIView):
+    queryset=models.Task.objects.all() 
+    serializer_class=TimeSerializer
