@@ -4,7 +4,10 @@ import axios from "axios";
 
 // localStorage.setItem('userLoginStatus',null)
 export default function Login() {
-  
+  useEffect(()=>{
+    document.title='Login';
+  });
+
   const [loginData,setLoginData]=useState(
     {
       'userName':'',
@@ -43,7 +46,7 @@ export default function Login() {
           localStorage.setItem('loggeduser',id);
           console.log(localStorage.getItem('loggeduser'));
 
-          window.location.href='/homepage';
+          window.location.href='/dashboard';
           
           event.preventDefault();
           
