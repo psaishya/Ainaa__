@@ -39,7 +39,8 @@ return (
                   </>
                 }
                 {userLoginStatus=='true' &&
-                  <><li><a className="dropdown-item" href="/logout">Logout</a></li></>
+                  <><li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
+                  <li><a className="dropdown-item" href="/logout">Logout</a></li></>
                 }
                 </ul>
               </li>

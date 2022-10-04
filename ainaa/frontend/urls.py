@@ -10,7 +10,7 @@ urlpatterns = [
     path('logout',index),
     path('signup',index),
     path('test',index),
-    path('homepage',index),
+    path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
     # path('home/<str:username>',index),
