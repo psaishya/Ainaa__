@@ -15,6 +15,7 @@ import Homepage from './Homepage';
 import Logout from './Logout';
 import UpdateProfile from './UpdateProfile';
 import UserProfile from './UserProfile';
+import AddGoals from './AddGoals';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -53,6 +54,7 @@ export default function Main() {
                 <Route exact path='/homepage' element={ <Homepage/>}/>
                 <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>
                 <Route exact path='/profile' element={ <UserProfile/>}/>
+                <Route exact path='/addgoals' element={<AddGoals/>}/>
             </Routes>
         </Router>
       <Footer/>

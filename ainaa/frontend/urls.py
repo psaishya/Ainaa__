@@ -13,6 +13,7 @@ urlpatterns = [
     path('homepage',index),
     path('updateprofile',index),
     path('profile',index),
+    path('addgoals',index)
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
     # path('main/<str:usern>',index),
