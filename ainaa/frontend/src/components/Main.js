@@ -17,6 +17,7 @@ import UserProfile from './UserProfile';
 import AddGoals from './AddGoals';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
+import Notification from './Notification';
 
 document.body.style.backgroundColor='white';
 document.body.style.color='black';
@@ -57,6 +58,7 @@ export default function Main() {
                 <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>
                 <Route exact path='/profile' element={ <UserProfile/>}/>
                 <Route exact path='/addgoals' element={<AddGoals/>}/>
+                <Route exact path='/notification' element ={<Notification/>}/>
             </Routes>
         </Router>
       <Footer/>

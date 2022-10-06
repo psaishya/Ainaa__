@@ -18,4 +18,5 @@ urlpatterns = [
     path('loggeduser',views.Loggeduser),
     path('task/',views.TaskList.as_view()),
     path('tasktime/',views.TaskTime.as_view()),
+    path('notifications/<int:user_id>/',views.NotificationList.as_view()),
 ]

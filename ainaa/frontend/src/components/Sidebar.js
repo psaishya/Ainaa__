@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import {CgProfile} from "react-icons/cg";
 import {GiMirrorMirror} from "react-icons/gi"
 import {MdOutlineAddTask} from "react-icons/md"
 import {BsFillJournalBookmarkFill} from "react-icons/bs"
 import {IoIosNotifications} from "react-icons/io"
+import axios from 'axios';
 
 
 export default function Sidebar() {
+    const [notifData,setnotifData]=useState([]);
+    const userId=localStorage.getItem('loggeduser');
+
+    useEffect(()=>{
+      try{
+        axios.get('/api/notifications/'+userId+'/')
+        .then((response)=>{
+          console.log(response);
+          setnotifData(response.data);
+        });
+      }catch(error){
+        console.log(error);
+      }
+    },[]);
+
   return (
     <>
     {/* <div className='container mt-4'>
@@ -19,7 +35,7 @@ export default function Sidebar() {
               <a href='#' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Aaina</a>
               <a href='/addgoals' className='list-group-item list gropu-item-action'><MdOutlineAddTask/> Goals</a>
               <a href='#' className='list-group-item list gropu-item-action'><BsFillJournalBookmarkFill/> Journal</a>
-              <a href='#' className='list-group-item list gropu-item-action'><IoIosNotifications/> Notifications <span className ="float-end badge bg-danger mt-1">123</span></a>
+              <a href='/notification' className='list-group-item list gropu-item-action'><IoIosNotifications/> Notifications <span className ="float-end badge bg-danger mt-1">{notifData.length}</span></a>
             </div>
           </div>
         {/* </aside>

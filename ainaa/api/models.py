@@ -1,3 +1,4 @@
+from email.policy import default
 from pickle import TRUE
 from pyexpat import model
 from django.db import models
@@ -28,5 +29,14 @@ class Task(models.Model):
         return self.title
 
     class Meta:
-        ordering=['complete']
         verbose_name_plural="2. Tasks"
+
+class Notification(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    notif_title=models.CharField(max_length=200,null=True)
+    notif_type=models.CharField(max_length=20)
+    notif_time=models.DateTimeField(auto_now_add=True)
+    notifiread_status=models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural="3. Notifications"

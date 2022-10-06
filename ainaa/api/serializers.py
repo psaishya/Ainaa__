@@ -31,4 +31,9 @@ class TimeSerializer(serializers.ModelSerializer):
         model = models.Task
         fields= ('user','title','description','type','complete','create')
 
+class NotificationSerializer(serializers.ModelSerializer):
+     #create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+     class Meta:
+        model = models.Notification
+        fields= ('id','user','notif_title','notif_type','notifiread_status')
 

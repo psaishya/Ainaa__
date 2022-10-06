@@ -2,6 +2,8 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
+import { Form } from 'react-router-dom';
+import { BsWindowSidebar } from 'react-icons/bs';
 
 export default function AddGoals(){
     const loggeduser=localStorage.getItem('loggeduser');
@@ -13,7 +15,7 @@ export default function AddGoals(){
             'type':'',
             'complete':false,
             'create':'',
-             'status':'',
+            'status':'',
         }
     );
     const handleChange=(event)=>{
@@ -42,23 +44,37 @@ export default function AddGoals(){
                 }
             })
             .then((response)=>{
-                
-            console.log(response.data );
-            settaskData({
-            'user':loggeduser,
-            'title':'',
-            'description':'',
-            'type':'',
-            'complete':taskData.complete,
-            'create':taskData.create,
-            'status':'success',
+                    
+                console.log(response.data );
+                settaskData({
+                    'user':loggeduser,
+                    'title':'',
+                    'description':'',
+                    'type':'',
+                    'complete':taskData.complete,
+                    'create':taskData.create,
+                    'status':'success',
+                });
+                const notifData=new FormData();
+                notifData.append('user',loggeduser);
+                notifData.append('notif_type',taskData.type);
+                notifData.append('notif_title',taskData.title)
+
+                axios.post('/api/notifications/'+loggeduser+'/',notifData,{
+                    headers:{
+                        'Content-Type':'application/json'
+                    }
+                })
+                .then((response)=>{console.log('Notification added');
             })
+            window.location.reload
           })
           }
           catch(error){
             console.log(error);
             settaskData({'status':'error'})
           }
+          
           
         };
         
@@ -137,6 +153,8 @@ export default function AddGoals(){
                                 <div className="mb-3">
                                     <div className="col-sm-10">
                                     <button type="submit" className="btn btn-primary" onClick={addTask}>Add</button>
+                                    {taskData.status=='success' && <p className='text-success'>Your goals have been set. </p>}
+                                    {taskData.status=='error' && <p className='text-danger'>Something wrong happened. </p>}
                                     </div>
                                 </div>
                             
