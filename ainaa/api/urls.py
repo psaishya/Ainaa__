@@ -22,4 +22,7 @@ urlpatterns = [
     path('tasktime/<int:pk>/',views.TaskTime.as_view()),
     path('usertask/<int:userId>',views.UserTask.as_view()),
 
+    path('notime/<int:user_id>/',views.NotificationTime.as_view()),
+    path('delnot/<int:pk>/',views.Notificationdelete.as_view()),
+    
 ]
