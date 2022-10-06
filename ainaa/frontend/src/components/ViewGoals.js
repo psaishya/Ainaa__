@@ -111,14 +111,14 @@ export default function ViewGoals() {
                 <div className='card'>
                     <h1 className='card-header'>Tasks to be completed </h1>
                     <div className='card-body'>
-                    {Array.from(taskdata).map(task =>
+                    {Array.from(taskdata).map((task,index) =>
 
                         // {taskdata.map((task,index)=>
-                        {return(<>
+                        {return(
 
-                    <div className="accordion accordion-flush" id="accordionFlushExample" >
+                    <div key={index} className="accordion accordion-flush" id="accordionFlushExample" >
                         
-                        <div className="accordion-item" key={task}>
+                        <div className="accordion-item" >
                             
                             <h2 className="accordion-header" id="flush-headingOne">
                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -147,7 +147,7 @@ export default function ViewGoals() {
                        
                       
                     </div>
-                    </>
+
                     )})} 
                     <hr/>
                    <a href='/addgoals'>Add more?</a>

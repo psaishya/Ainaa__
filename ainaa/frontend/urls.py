@@ -13,14 +13,11 @@ urlpatterns = [
     path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
-<<<<<<< HEAD
-    path('addgoals',index),
+ 
     path('notification',index),
-=======
     path('viewgoals',index),    
     path('addgoals',index),
     path('ainaa',index)
->>>>>>> 54249054e478822c79777a54837ac88a3a15f1ce
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
     # path('main/<str:usern>',index),

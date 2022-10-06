@@ -67,11 +67,7 @@ export default function AddGoals(){
                 })
                 .then((response)=>{console.log('Notification added');
             })
-<<<<<<< HEAD
-            window.location.reload
-=======
             Swal.fire('Success','Task has been successfully added.');
->>>>>>> 54249054e478822c79777a54837ac88a3a15f1ce
           })
           }
           catch(error){

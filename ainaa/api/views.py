@@ -5,11 +5,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-<<<<<<< HEAD
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer
-=======
-from .serializers import UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer
->>>>>>> 54249054e478822c79777a54837ac88a3a15f1ce
+from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer
 from . import models
 # Create your views here.
 
@@ -60,11 +56,15 @@ class TaskList(generics.ListCreateAPIView):
 class TaskTime(generics.RetrieveUpdateDestroyAPIView):
     queryset=models.Task.objects.all() 
     serializer_class=UpdatetaskSerializer
-    
-#this view is for getting tasks of individual user    
+
+#this view is for getting tasks of individual user
 class UserTask(generics.ListCreateAPIView):
     serializer_class=TimeSerializer
-<<<<<<< HEAD
+
+    def get_queryset(self):
+        userId=self.kwargs['userId']
+        user=models.User.objects.get(pk=userId)
+        return models.Task.objects.filter(user=user)
 
 class NotificationList(generics.ListCreateAPIView):
     queryset=models.Notification.objects.all()
@@ -76,12 +76,3 @@ class NotificationList(generics.ListCreateAPIView):
         models.Notification.objects.filter(user=user).update(notifiread_status=True)
         return models.Notification.objects.filter(user=user)
         
-=======
-    
-    def get_queryset(self):
-        userId=self.kwargs['userId']
-        user=models.User.objects.get(pk=userId)
-        return models.Task.objects.filter(user=user)
-        
-    
->>>>>>> 54249054e478822c79777a54837ac88a3a15f1ce
