@@ -1,6 +1,28 @@
 import React from 'react';
 export default function Header(props) {
   const userLoginStatus=localStorage.getItem('userLoginStatus');
+  const logoutclick=()=>{
+    const Swal = require('sweetalert2')
+    Swal.fire({
+        title: 'Confirm?',
+        text: 'Are you sure you want to logout?',
+        icon: 'info',
+        confirmButtonText: 'Continue',
+        showCancelButton: true,
+
+      }).then((result)=>{
+        if(result.isConfirmed){
+            // localStorage.removeItem('userLoginStatus')
+            // localStorage.removeItem('loggeduser')
+            Swal.fire('success','You have been logged out');
+            localStorage.removeItem('userLoginStatus')
+            localStorage.removeItem('loggeduser')
+            window.location.href='/login'; 
+        }
+      })
+
+  }
+  
 return (
   
     <div>
@@ -40,7 +62,7 @@ return (
                 }
                 {userLoginStatus=='true' &&
                   <><li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
-                  <li><a className="dropdown-item" href="/logout">Logout</a></li></>
+                  <li><a className="dropdown-item"  onClick={logoutclick}>Logout</a></li></>
                 }
                 </ul>
               </li>

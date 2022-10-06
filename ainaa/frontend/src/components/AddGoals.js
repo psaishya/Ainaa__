@@ -6,6 +6,7 @@ import { Form } from 'react-router-dom';
 import { BsWindowSidebar } from 'react-icons/bs';
 
 export default function AddGoals(){
+    const Swal = require('sweetalert2')
     const loggeduser=localStorage.getItem('loggeduser');
     const[taskData,settaskData]=useState(
         {
@@ -26,7 +27,6 @@ export default function AddGoals(){
       };
       const addTask=(event)=>{
         console.log(taskData);
-        alert(taskData);
         const userFormData=new FormData();
         userFormData.append("user",taskData.user)
         userFormData.append("title",taskData.title)
@@ -67,7 +67,11 @@ export default function AddGoals(){
                 })
                 .then((response)=>{console.log('Notification added');
             })
+<<<<<<< HEAD
             window.location.reload
+=======
+            Swal.fire('Success','Task has been successfully added.');
+>>>>>>> 54249054e478822c79777a54837ac88a3a15f1ce
           })
           }
           catch(error){
@@ -139,7 +143,7 @@ export default function AddGoals(){
                                     </div>
                                 </fieldset>
                          
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <div className="col-sm-2">Complete</div>
                                     <div className="col-sm-10">
                                     <div className="form-check">
@@ -149,7 +153,8 @@ export default function AddGoals(){
                                         </label>
                                     </div>
                                     </div>
-                                </div>
+                                </div> */}
+                                <hr/>
                                 <div className="mb-3">
                                     <div className="col-sm-10">
                                     <button type="submit" className="btn btn-primary" onClick={addTask}>Add</button>
@@ -160,6 +165,7 @@ export default function AddGoals(){
                             
                         </div>
                     </div>    
+                    <a href='/viewgoals'>View your goals.</a>
                 </section>
             </div>
         </div>

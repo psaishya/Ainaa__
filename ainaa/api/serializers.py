@@ -29,7 +29,13 @@ class TimeSerializer(serializers.ModelSerializer):
      create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
      class Meta:
         model = models.Task
-        fields= ('user','title','description','type','complete','create')
+        fields= ('id','user','title','description','type','complete','create')
+        
+class UpdatetaskSerializer(serializers.ModelSerializer):
+    #  create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+     class Meta:
+        model = models.Task
+        fields= ('id','user','complete',)
 
 class NotificationSerializer(serializers.ModelSerializer):
      #create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
