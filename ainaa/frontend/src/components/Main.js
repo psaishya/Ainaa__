@@ -18,7 +18,7 @@ import AddGoals from './AddGoals';
 import Sidebar from './Sidebar';
 import Dashboard from './Dashboard';
 import ViewTasks from './ViewGoals';
-import EditGoal from './EditGoal';
+// import EditGoal from './EditGoal';
 import Ainaa from './Ainaa';
 
 document.body.style.backgroundColor='white';
@@ -61,7 +61,7 @@ export default function Main() {
                 <Route exact path='/profile' element={ <UserProfile/>}/>
                 <Route exact path='/viewgoals' element={ <ViewTasks/> }/>
                 <Route exact path='/addgoals' element={<AddGoals/>}/>
-                <Route exact path='/editgoal/:taskid' element={<EditGoal/>}/>
+                {/* <Route exact path='/editgoal/:taskid' element={<EditGoal/>}/> */}
                 <Route exact path='/ainaa' element={ <Ainaa/>}/>
 
 

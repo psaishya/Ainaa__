@@ -21,7 +21,7 @@ export default function ViewGoals() {
         'create':'',
         },
       );
-      useEffect(()=>{
+    useEffect(()=>{
         try{
             axios.get('/api/usertask/'+loggeduser).then((respose)=>{
             setTaskdata(respose.data);
@@ -33,7 +33,7 @@ export default function ViewGoals() {
         }
         
     },[]);
-    console.log(taskdata);
+    // console.log(taskdata);
     const handledelete=(taskid)=>{ 
         Swal.fire({
             title: 'Confirm?',
@@ -51,10 +51,10 @@ export default function ViewGoals() {
                         // console.log(respose);
                         // setTaskdata(respose.data);
                     });
-                    Swal.fire('success','Task has been deleted.');
+                    Swal.fire('Success','Task has been deleted.');
                 }
                 catch(error){
-                    Swal.fire('error','Task has not been deleted!');
+                    Swal.fire('Error','Task has not been deleted!');
 
                 }
 
@@ -65,38 +65,41 @@ export default function ViewGoals() {
             }
           })
     }
-
-    const handleedit=(taskid,event)=>{ 
-        setTaskdata({   
-            'id':taskid,
-            'user':loggeduser,
-            'title':'',
-            'description':'i changed ',
-            'type':'',
-            'complete':true,
-            'create':'', 
-            'status':'',
-        });
-        
-        const userFormData=new FormData();
-        userFormData.append("description",taskdata.description)
-        userFormData.append("complete",taskdata.complete)
-        
-     
-        // event.preventDefault();
-        try{ 
-          
+    const[newtaskdata,setnewTaskdata]=useState(
+        {
+        'id':'',
+        'user':loggeduser,
+        'title':'',
+        'description':'new dwdgkhbytdrtdbytv',
+        'type':'',
+        'complete':true,
+        'create':'',
+        },
+      );
+      const newtaskFormData=new FormData();
+            newtaskFormData.append("id",newtaskdata.id)
+            newtaskFormData.append("user",newtaskdata.user)
+            newtaskFormData.append("complete",newtaskdata.complete)
     
-            axios.put('/api/tasktime/'+taskid+'/',userFormData)
-            .then((response)=>{
-                
-            console.log(response.data );
-          })
-          }
-          catch(error){
-            console.log(error);
-            settaskData({'status':'error'})
-          }}
+    const handleedit=(taskid,event)=>{ 
+        event.preventDefault();
+        console.log(taskid);
+
+        try{
+            console.log(taskid);
+
+            axios.patch('/api/tasktime/'+taskid+'/',newtaskFormData).then((response)=>{
+            console.log(response.data);
+            window.location.reload();
+
+        });
+        }catch(error){
+            console.log(error); 
+        }
+        
+    }
+    
+
   return (
     <>
         <div className='container mt-4'>
@@ -109,8 +112,10 @@ export default function ViewGoals() {
                     <h1 className='card-header'>Tasks to be completed </h1>
                     <div className='card-body'>
                     {Array.from(taskdata).map(task =>
+
                         // {taskdata.map((task,index)=>
                         {return(<>
+
                     <div className="accordion accordion-flush" id="accordionFlushExample" >
                         
                         <div className="accordion-item" key={task}>
@@ -126,10 +131,11 @@ export default function ViewGoals() {
                                     <p>Description : {task.description}</p>
                                     <p>Type : {task.type}</p>
                                     <p>Created on : {task.create}</p>
-                                    <p>Completed : {toString(task.complete)}</p>
+                                    <p>Completed : {((task.complete))==true?'Yes':'No'}</p>
+
                                     <button onClick={()=>handledelete(task.id)} className='btn btn-danger btn-sm active float-end me-2' ><i className="bi bi-trash3"></i> </button>
                                     {/* <Link to={'/editgoal/'+task.id} className='btn btn-success btn-sm active float-end me-2' ><i className="bi bi-check-circle-fill"></i></Link> */}
-                                    <button onClick={()=>handleedit(task.id)} className='btn btn-success btn-sm active float-end me-2' ><i className="bi bi-check-circle-fill"></i></button>
+                                    <button onClick={(event)=>handleedit(task.id,event)} className='btn btn-success btn-sm active float-end me-2' ><i className="bi bi-check-circle-fill"></i></button>
 
 
                                 </div>
@@ -145,7 +151,7 @@ export default function ViewGoals() {
                     )})} 
                     <hr/>
                    <a href='/addgoals'>Add more?</a>
-                   {console.log(taskdata)}
+                   {/* {console.log(taskdata)} */}
 
                     </div>
                 </div>

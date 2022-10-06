@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 
 export default function AddGoals(){
+    const Swal = require('sweetalert2')
     const loggeduser=localStorage.getItem('loggeduser');
     const[taskData,settaskData]=useState(
         {
@@ -24,7 +25,6 @@ export default function AddGoals(){
       };
       const addTask=(event)=>{
         console.log(taskData);
-        alert(taskData);
         const userFormData=new FormData();
         userFormData.append("user",taskData.user)
         userFormData.append("title",taskData.title)
@@ -53,6 +53,7 @@ export default function AddGoals(){
             'create':taskData.create,
             'status':'success',
             })
+            Swal.fire('Success','Task has been successfully added.');
           })
           }
           catch(error){
