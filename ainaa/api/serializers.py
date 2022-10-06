@@ -32,8 +32,16 @@ class TimeSerializer(serializers.ModelSerializer):
         fields= ('user','title','description','type','complete','create')
 
 class NotificationSerializer(serializers.ModelSerializer):
-     #create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+#      notif_time=serializers.DateTimeField(format="%Y-%m-%d")
      class Meta:
         model = models.Notification
         fields= ('id','user','notif_title','notif_type','notifiread_status')
+
+class NotificationtimeSerializer(serializers.ModelSerializer):
+     #notif_time=serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S")
+     class Meta:
+        model = models.Notification
+        fields= ('id','user','notif_title','notif_type','notif_time','notifiread_status')
+
+
 

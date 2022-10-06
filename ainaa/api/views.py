@@ -1,3 +1,5 @@
+from ast import Delete
+from subprocess import IDLE_PRIORITY_CLASS
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.views import APIView
@@ -5,7 +7,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer
+from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer
 from . import models
 # Create your views here.
 class UserList(generics.ListCreateAPIView):
@@ -62,4 +64,20 @@ class NotificationList(generics.ListCreateAPIView):
         user=models.User.objects.get(pk=user_id)
         models.Notification.objects.filter(user=user).update(notifiread_status=True)
         return models.Notification.objects.filter(user=user)
+
+
+class NotificationTime(generics.ListAPIView):
+    queryset=models.Notification.objects.all()
+    serializer_class=NotificationtimeSerializer
+
+    def get_queryset(self):
+        user_id=self.kwargs['user_id']
+        user=models.User.objects.get(pk=user_id)
+        models.Notification.objects.filter(user=user).update(notifiread_status=True)
+        return models.Notification.objects.filter(user=user)
+
+class Notificationdelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset=models.Notification.objects.all()
+    serializer_class=NotificationtimeSerializer
+
         

@@ -19,4 +19,7 @@ urlpatterns = [
     path('task/',views.TaskList.as_view()),
     path('tasktime/',views.TaskTime.as_view()),
     path('notifications/<int:user_id>/',views.NotificationList.as_view()),
+    path('notime/<int:user_id>/',views.NotificationTime.as_view()),
+    path('delnot/<int:pk>/',views.Notificationdelete.as_view()),
+    
 ]
