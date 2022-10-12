@@ -10,7 +10,7 @@ import Footer from './Footer';
 import About from './About';
 import Login from './Login';
 import Signup from './Signup';
-import Test from './Test';
+
 // import Logout from './Logout';
 import UpdateProfile from './UpdateProfile';
 import UserProfile from './UserProfile';
@@ -57,7 +57,7 @@ export default function Main() {
                 <Route exact path='/login' element={ <Login/>}/>
                 {/* <Route exact path='/logout' element={ <Logout/>}/> */}
                 <Route exact path='/signup' element={ <Signup/>}/>
-                <Route exact path='/test' element={ <Test/>}/>
+                
                 <Route exact path='/dashboard' element={ <Dashboard/>}/>
                 {/* <Route exact path='/homepage' element={ <Sidebar/>}/> */}
                 <Route exact path='/updateprofile' element={ <UpdateProfile/>}/>

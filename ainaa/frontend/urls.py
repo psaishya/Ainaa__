@@ -9,7 +9,7 @@ urlpatterns = [
     path('login',index),
     # path('logout',index),
     path('signup',index),
-    path('test',index),
+
     path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
