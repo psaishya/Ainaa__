@@ -19,7 +19,7 @@ urlpatterns = [
     path('viewjournals',index),
     path('addgoals',index),
     path('addjournals',index),
-     path('editjournals',index),
+    
     path('ainaa',index)
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),
