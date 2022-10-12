@@ -85,7 +85,7 @@ export default function AddGoals(){
                     <Sidebar/>
                 </aside>
                 <section className="col-md-9">
-                    <div className='card' >
+                    <div className='card' style={{backgroundColor: "#16202a"}} >
                         <h5 className="card-header">Add your goals</h5>
                         <div className="card-body">
                             
@@ -154,14 +154,14 @@ export default function AddGoals(){
                                 <div className="mb-3">
                                     <div className="col-sm-10">
                                     <button type="submit" className="btn btn-primary" onClick={addTask}>Add</button>
-                                    {taskData.status=='success' && <p className='text-success'>Your goals have been set. </p>}
-                                    {taskData.status=='error' && <p className='text-danger'>Something wrong happened. </p>}
+                                    {/* {taskData.status=='success' && <p className='text-success'>Your goals have been set. </p>}
+                                    {taskData.status=='error' && <p className='text-danger'>Something wrong happened. </p>} */}
                                     </div>
                                 </div>
                             
                         </div>
                     </div>    
-                    <a href='/viewgoals'>View your goals.</a>
+                    <a href='/viewgoals' style={{ color:'white'}}>View your goals.</a>
                 </section>
             </div>
         </div>

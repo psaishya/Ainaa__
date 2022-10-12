@@ -15,12 +15,12 @@ export default function Ainaa() {
                 <Sidebar/>
             </aside>
        
-        <section className='col-md-4 '>
+        <section className='col-md-4 ' >
             
-             <div className="card me-10" >
+             <div className="card me-10" style={{backgroundColor: "#16202a"}} >
                 <img src={Lando} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">Your goals</h5>
+                    <h5 className="card-title">My goals</h5>
                     <p className="card-text">View the goals you set and their details.</p>
                     <a href="/viewgoals" className="btn btn-primary">View</a>
                 </div>
@@ -29,11 +29,11 @@ export default function Ainaa() {
         </section>
         <section className='col-md-4 '>
             
-             <div className="card me-10" >
+             <div className="card me-10" style={{backgroundColor: "#16202a"}}>
                 <img src={Lando} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">Your journals</h5>
-                    <p className="card-text">Something abaout journals</p>
+                    <h5 className="card-title">My journals</h5>
+                    <p className="card-text">Take a glance at your memories.</p>
                     <a href="/viewjournals" className="btn btn-primary">View </a>
                 </div>
              </div>

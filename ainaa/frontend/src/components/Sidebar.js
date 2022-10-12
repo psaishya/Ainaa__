@@ -28,11 +28,11 @@ export default function Sidebar() {
     {/* <div className='container mt-4'>
       <div className='row'>
         <aside className='col-md-3'> */}
-          <div className='card'>
+          <div className='card' style={{backgroundColor: "#16202a"}}>
             <h5 className='card-header'>Dashboard</h5>
             <div className='list-group list-group-flush'>
               <a href='/profile' className='list-group-item list gropu-item-action'><CgProfile/> Profile</a>
-              <a href='/ainaa' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Aaina</a>
+              <a href='/ainaa' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Ainaa</a>
               
               <a href='/addjournals' className='list-group-item list gropu-item-action'><BsFillJournalBookmarkFill/> Add Journal</a>
               <a href='/addgoals' className='list-group-item list gropu-item-action'><MdOutlineAddTask/> Add Goals</a>

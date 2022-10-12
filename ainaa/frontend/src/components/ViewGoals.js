@@ -90,7 +90,9 @@ export default function ViewGoals() {
 
             axios.patch('/api/tasktime/'+taskid+'/',newtaskFormData).then((response)=>{
             console.log(response.data);
-            window.location.reload();
+            // Swal.fire('Success','Task has been completed.');
+
+             window.location.reload();
 
         });
         }catch(error){
@@ -108,7 +110,7 @@ export default function ViewGoals() {
                 <Sidebar/>
             </aside>
             <section className='col-md-9'>
-                <div className='card'>
+                <div className='card' style={{backgroundColor: "#16202a"}}>
                     <h1 className='card-header'>Tasks to be completed </h1>
                     <div className='card-body'>
                     {Array.from(taskdata).map((task,index) =>
@@ -118,10 +120,10 @@ export default function ViewGoals() {
 
                     <div key={index} className="accordion accordion-flush" id="accordionFlushExample" >
                         
-                        <div className="accordion-item" >
+                        <div className="accordion-item" style={{backgroundColor: "#16202a", color:'white'}} >
                             
                             <h2 className="accordion-header" id="flush-headingOne">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button style={{backgroundColor: "#DAE5F8"}} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                 <div>{task.title}</div>   
                                 
                             </button>  
@@ -150,7 +152,7 @@ export default function ViewGoals() {
 
                     )})} 
                     <hr/>
-                   <a href='/addgoals'>Add more?</a>
+                   <a href='/addgoals' style={{ color:'white'}}>Add more?</a>
                    {/* {console.log(taskdata)} */}
 
                     </div>

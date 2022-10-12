@@ -24,8 +24,8 @@ import AddJournals from './Journal';
 import ViewJournals from './ViewsJournal';
 
 
-document.body.style.backgroundColor='white';
-document.body.style.color='black';
+document.body.style.backgroundColor='#6274a1';
+document.body.style.color='#a0adc6';
 export default function Main() {
   const[mode,setMode]=useState('light');
   const changemode=()=>{
@@ -41,8 +41,8 @@ export default function Main() {
     }
     else {
       setMode('light');
-      document.body.style.backgroundColor='white';
-      document.body.style.color='black';
+      document.body.style.backgroundColor='#6274a1';
+      document.body.style.color='#a0adc6';
       // setalertfunc("Dark mode has been disabled","success");
   }
   }

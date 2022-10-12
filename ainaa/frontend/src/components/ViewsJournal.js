@@ -102,7 +102,7 @@ export default function ViewJournals() {
                 <Sidebar/>
             </aside>
             <section className='col-md-9'>
-                <div className='card'>
+                <div className='card' style={{backgroundColor: "#16202a"}}>
                     <h1 className='card-header'>My Journals </h1>
                     <div className='card-body'>
                     {Array.from(journaldata).map((journal,index) =>
@@ -112,20 +112,20 @@ export default function ViewJournals() {
 
                     <div key={index} className="accordion accordion-flush" id="accordionFlushExample" >
                         
-                        <div className="accordion-item" >
+                        <div className="accordion-item" style={{backgroundColor: "#16202a", color:'white'}} >
                             
                             <h2 className="accordion-header" id="flush-headingOne">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                <div>{journal.title}</div>   
+                            <button style={{backgroundColor: "#DAE5F8"}} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <div >
+                                <p className='text-end' > {journal.create}</p></div>   
                                 
                             </button>  
                             </h2>
                             <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div className="accordion-body">
-                                    <p>Description : {journal.description}</p>
-                                    <p>Created on : {journal.create}</p>
+                                    <p   style={{color: "white"}} className='fw-bold fs-3'>{journal.title}</p>
+                                    <p> {journal.description}</p>
                                     <button onClick={()=>handledelete(journal.id)} className='btn btn-danger btn-sm active float-end me-2' ><i className="bi bi-trash3"></i> </button>
-                                    <a class="btn btn-info float-end me-2" href="/editjournals" role="button">Edit</a>
                                     
 
                                 </div>
@@ -140,7 +140,7 @@ export default function ViewJournals() {
 
                     )})} 
                     <hr/>
-                   <a href='/addjournals'>Add more?</a>
+                   <a href='/addjournals' style={{ color:'white'}}>Add more?</a>
                    {/* {console.log(taskdata)} */}
 
                     </div>

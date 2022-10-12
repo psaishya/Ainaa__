@@ -30,7 +30,7 @@ class JournalSerializer(serializers.ModelSerializer):
         model = models.Journal
         fields= ('user','title','description')
 class JTimeSerializer(serializers.ModelSerializer):
-     create=serializers.DateTimeField(format="%d-%m-%Y %H:%M:%S")
+     create=serializers.DateTimeField(format="%Y/%m/%d")
      class Meta:
         model = models.Journal
         fields= ('id','user','title','description','create')

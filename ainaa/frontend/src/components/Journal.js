@@ -76,7 +76,7 @@ export default function AddJournals(){
                     <Sidebar/>
                 </aside>
                 <section className="col-md-9">
-                    <div className='card' >
+                    <div className='card' style={{backgroundColor: "#16202a"}} >
                         <h5 className="card-header">Create Journal</h5>
                         <div className="card-body">
                             
@@ -97,14 +97,14 @@ export default function AddJournals(){
                                 <div className="mb-3">
                                     <div className="col-sm-10">
                                     <button type="submit" className="btn btn-primary" onClick={addJournal}>Create</button>
-                                    {journalData.status=='success' && <p className='text-success'>Your journal have been created. </p>}
-                                    {journalData.status=='error' && <p className='text-danger'>Something wrong happened. </p>}
+                                    {/* {journalData.status=='success' && <p className='text-success'>Your journal have been created. </p>}
+                                    {journalData.status=='error' && <p className='text-danger'>Something wrong happened. </p>} */}
                                     </div>
                                 </div>
                             
                         </div>
                     </div>    
-                    <a href='/viewjournals'>View your journals.</a>
+                    <a href='/viewjournals' style={{ color:'white'}}>View your journals.</a>
                    
                     
                 </section>
