@@ -16,11 +16,15 @@ export default function Notification(){
           console.log(response);
           setnotifData(response.data);
           
+          
         });
       }catch(error){
         console.log(error);
       }
     },[]);
+
+    
+
     const handledelete=(id)=>{ 
      
               try{
@@ -69,7 +73,9 @@ export default function Notification(){
                     )})}                    
                         </div>
                     
-                </div>      
+              
+                    
+                </div>     
                 </section>
             </div>
         </div>

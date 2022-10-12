@@ -34,7 +34,7 @@ export default function Ainaa() {
                 <div className="card-body">
                     <h5 className="card-title">Your journals</h5>
                     <p className="card-text">Something abaout journals</p>
-                    <a href="#" className="btn btn-primary">View </a>
+                    <a href="/viewjournals" className="btn btn-primary">View </a>
                 </div>
              </div>
             

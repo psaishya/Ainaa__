@@ -31,6 +31,7 @@ class Task(models.Model):
     class Meta:
         verbose_name_plural="2. Tasks"
 
+
 class Notification(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     notif_title=models.CharField(max_length=200,null=True)
@@ -40,3 +41,16 @@ class Notification(models.Model):
 
     class Meta:
         verbose_name_plural="3. Notifications"
+
+class Journal(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True)
+    title=models.CharField(max_length=200)
+    description=models.TextField(null=True,blank=True)
+    create=models.DateTimeField(auto_now_add=True)
+
+   
+    def __str__(self) :
+        return self.title
+
+    class Meta:
+        verbose_name_plural="4. Journals"

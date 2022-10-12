@@ -34,7 +34,7 @@ export default function Sidebar() {
               <a href='/profile' className='list-group-item list gropu-item-action'><CgProfile/> Profile</a>
               <a href='/ainaa' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Aaina</a>
               <a href='/addgoals' className='list-group-item list gropu-item-action'><MdOutlineAddTask/>Add Goals</a>
-              <a href='#' className='list-group-item list gropu-item-action'><BsFillJournalBookmarkFill/>Add Journal</a>
+              <a href='/addjournals' className='list-group-item list gropu-item-action'><BsFillJournalBookmarkFill/>Add Journal</a>
               <a href='/notification' className='list-group-item list gropu-item-action'><IoIosNotifications/> Notifications <span className ="float-end badge bg-danger mt-1">{notifData.length}</span></a>
              
             </div>

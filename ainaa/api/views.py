@@ -7,11 +7,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-<<<<<<< HEAD
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer
-=======
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer
->>>>>>> sk
+from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer,UpdatetaskSerializer,JournalSerializer,JTimeSerializer,UpdatejournalSerializer
 from . import models
 # Create your views here.
 
@@ -62,6 +58,23 @@ class TaskList(generics.ListCreateAPIView):
 class TaskTime(generics.RetrieveUpdateDestroyAPIView):
     queryset=models.Task.objects.all() 
     serializer_class=UpdatetaskSerializer
+
+class JournalList(generics.ListCreateAPIView):
+    queryset=models.Journal.objects.all() 
+    serializer_class=JournalSerializer
+
+class JTime(generics.RetrieveUpdateDestroyAPIView):
+    queryset=models.Journal.objects.all() 
+    serializer_class=UpdatejournalSerializer
+
+class UserJournal(generics.ListCreateAPIView):
+    serializer_class=JTimeSerializer
+
+    def get_queryset(self):
+        userId=self.kwargs['userId']
+        user=models.User.objects.get(pk=userId)
+        return models.Journal.objects.filter(user=user)
+    
 
 #this view is for getting tasks of individual user
 class UserTask(generics.ListCreateAPIView):
