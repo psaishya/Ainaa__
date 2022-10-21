@@ -70,7 +70,7 @@ export default function ViewGoals() {
         'id':'',
         'user':loggeduser,
         'title':'',
-        'description':'new dwdgkhbytdrtdbytv',
+        'description':'',
         'type':'',
         'complete':true,
         'create':'',

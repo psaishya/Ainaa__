@@ -5,9 +5,12 @@ import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-
+// const baseurl=
 export default function ViewJournals() {
     const Swal = require('sweetalert2')
+    const[prevurl,setprevurl]=useState([]);
+    // const[currenturl,setcurrenturl]=useState([]);
+    const[nexturl,setnexturl]=useState([]);
 
     const loggeduser=localStorage.getItem('loggeduser');
     const[journaldata,setJournaldata]=useState(
@@ -19,10 +22,15 @@ export default function ViewJournals() {
         'create':'',
         },
       );
+      
     useEffect(()=>{
         try{
             axios.get('/api/userjournal/'+loggeduser).then((response)=>{
-            setJournaldata(response.data);
+            setJournaldata(response.data.results);
+            console.log(journaldata);
+
+            setnexturl(response.data.next);
+            setprevurl(response.data.previous);
             
  
         });
@@ -31,11 +39,27 @@ export default function ViewJournals() {
         }
         
     },[]);
+
+    const handlepagination=(url)=>{
+        try{
+            axios.get(url).then((response)=>{
+            setJournaldata(response.data.results);
+            console.log(journaldata);
+
+            setnexturl(response.data.next)
+            setprevurl(response.data.previous)
+            
+ 
+        });
+        }catch(error){
+            console.log(error); 
+        }
+    }
     // console.log(taskdata);
     const handledelete=(journalid)=>{ 
         Swal.fire({
             title: 'Confirm?',
-            text: 'Are you sure you want to delete this task?',
+            text: 'Are you sure you want to delete this log?',
             icon: 'info',
             confirmButtonText: 'Continue',
             showCancelButton: true,
@@ -45,8 +69,10 @@ export default function ViewJournals() {
                 try{
                     axios.delete('/api/journaltime/'+journalid)
                     .then((response)=>{
-                        window.location.reload();
-                       
+                        // window.location.reload();
+                        handlepagination(nexturl);
+                   
+
                     });
                     Swal.fire('Success','Journal has been deleted.');
                 }
@@ -62,94 +88,56 @@ export default function ViewJournals() {
             }
           })
     }
-    const[newjournaldata,setnewJournaldata]=useState(
-        {
-        'id':'',
-        'user':loggeduser,
-        'title':'',
-        'description':'new dwdgkhbytdrtdbytv',
-        'create':'',
-        },
-      );
-      const newjournalFormData=new FormData();
-            newjournalFormData.append("user",newjournaldata.title)
-            newjournalFormData.append("user",newjournaldata.description)
     
-    // const handleedit=(journalid,event)=>{ 
-    //     event.preventDefault();
-    //     console.log(journalid);
-
-    //     try{
-    //         console.log(journalid);
-
-    //         axios.patch('/api/journaltime/'+journalid+'/',newjournalFormData).then((response)=>{
-    //         console.log(response.data);
-    //         window.location.reload();
-
-    //     });
-    //     }catch(error){
-    //         console.log(error); 
-    //     }
-        
-    // }
     
 
   return (
+    
+
+
     <>
         <div className='container mt-4'>
-        <div className='row'>
+            <div className='row'>
             <aside className='col-md-3'>
-                <Sidebar/>
-            </aside>
-            <section className='col-md-9'>
+                 <Sidebar/>
+             </aside>
+             <section className='col-md-9'>
                 <div className='card' style={{backgroundColor: "#16202a"}}>
-                    <h1 className='card-header'>My Journals </h1>
-                    <div className='card-body'>
-                    {Array.from(journaldata).map((journal,index) =>
+                     <h1 className='card-header'>My Journals </h1>
+                     <hr/>
 
-                        // {taskdata.map((task,index)=>
-                        {return(
+                     <div className='card-body'  style={{color: "white"}}>
+                        {Array.from(journaldata).map((journal,index) =>
 
-                    <div key={index} className="accordion accordion-flush" id="accordionFlushExample" >
-                        
-                        <div className="accordion-item" style={{backgroundColor: "#16202a", color:'white'}} >
-                            
-                            <h2 className="accordion-header" id="flush-headingOne">
-                            <button style={{backgroundColor: "#DAE5F8"}} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                <div >
-                                <p className='text-end' > {journal.create}</p></div>   
-                                
-                            </button>  
-                            </h2>
-                            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">
-                                    <p   style={{color: "white"}} className='fw-bold fs-3'>{journal.title}</p>
-                                    <p> {journal.description}</p>
-                                    <button onClick={()=>handledelete(journal.id)} className='btn btn-danger btn-sm active float-end me-2' ><i className="bi bi-trash3"></i> </button>
-                                    
+                    // {taskdata.map((task,index)=>
+                     {return(
+                        <div key={index}>
+                        <p><h3>{journal.create}</h3></p>
+                        <h5><b>{journal.title}</b></h5>
+                        <p>{journal.description}</p>
+                        <button onClick={()=>handledelete(journal.id)} className='btn btn-danger btn-sm active float-end me-2' ><i className="bi bi-trash3"></i> </button>
 
-                                </div>
-
-                            </div>
-                          
-                    
-                    </div>
-                       
-                      
-                    </div>
-
-                    )})} 
-                    <hr/>
-                   <a href='/addjournals' style={{ color:'white'}}>Add more?</a>
-                   {/* {console.log(taskdata)} */}
-
-                    </div>
+                     </div>
+                     )})}
+                     </div>
+                     
                 </div>
+                <a href='/addjournals' style={{ color:'white'}}>Add more?</a>
 
-                
-            </section>
+                <nav aria-label="Page navigation example">
+                    <ul className="pagination justify-content-center">
+                        {prevurl &&
+                        <li className="page-item"><button className="page-link" onClick={()=>handlepagination(prevurl)} ><i className="bi bi-arrow-left-circle"></i> Previous</button></li>
+                        }
+                        {nexturl &&
+                        <li className="page-item"><button className="page-link" onClick={()=>handlepagination(nexturl)}>Next <i className="bi bi-arrow-right-circle"></i></button></li>
+                        }
+                    </ul>
+                    </nav>
+             </section>
+            </div>
         </div>
-    </div>
+{console.log(journaldata)}
     </>
   )
 }

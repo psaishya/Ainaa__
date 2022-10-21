@@ -9,7 +9,13 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
 from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer,UpdatetaskSerializer,JournalSerializer,JTimeSerializer,UpdatejournalSerializer
 from . import models
+from rest_framework.pagination import PageNumberPagination
 # Create your views here.
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 1
+    page_size_query_param = 'page_size'
+    max_page_size = 1
 
 #this view is for all the user details
 class UserList(generics.ListCreateAPIView):
@@ -69,7 +75,8 @@ class JTime(generics.RetrieveUpdateDestroyAPIView):
 
 class UserJournal(generics.ListCreateAPIView):
     serializer_class=JTimeSerializer
-
+    pagination_class=StandardResultsSetPagination
+    
     def get_queryset(self):
         userId=self.kwargs['userId']
         user=models.User.objects.get(pk=userId)

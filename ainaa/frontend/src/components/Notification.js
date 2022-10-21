@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
-import {RiDeleteBin6Line} from "react-icons/ri";
+// import {RiDeleteBin6Line} from "react-icons/ri";
 
 export default function Notification(){
     const [notifData,setnotifData]=useState([]);
@@ -65,8 +65,8 @@ export default function Notification(){
                             <small>{moment(notification.notif_time).fromNow()}</small>
                             </div>
                             <p className="mb-1">{notification.notif_title} has been added to {notification.notif_type}.</p>
-                            <button type="button" className="btn btn-danger float-right" onClick={()=>handledelete(notification.id)} ><RiDeleteBin6Line/></button>
-                          
+                            <button type="button" className="btn btn-danger btn-sm active float-end me-2" onClick={()=>handledelete(notification.id)} ><i className="bi bi-trash3"></i></button>
+                          <hr/>
                         </a>
                         </div>
                 

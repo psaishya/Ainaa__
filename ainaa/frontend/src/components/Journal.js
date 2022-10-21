@@ -47,17 +47,17 @@ export default function AddJournals(){
                     'create':journalData.create,
                     'status':'success',
                 });
-                const notifData=new FormData();
-                notifData.append('user',loggeduser);
-                notifData.append('notif_title',journalData.title);
+                // const notifData=new FormData();
+                // notifData.append('user',loggeduser);
+                // notifData.append('notif_title',journalData.title);
 
-                axios.post('/api/notifications/'+loggeduser+'/',notifData,{
-                    headers:{
-                        'Content-Type':'application/json'
-                    }
-                })
-                .then((response)=>{console.log('Notification added');
-            })
+            //     axios.post('/api/notifications/'+loggeduser+'/',notifData,{
+            //         headers:{
+            //             'Content-Type':'application/json'
+            //         }
+            //     })
+            //     .then((response)=>{console.log('Notification added');
+            // })
             Swal.fire('Success','Journal has been successfully added.');
           })
           }
