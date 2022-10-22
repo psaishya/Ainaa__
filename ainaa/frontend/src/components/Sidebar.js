@@ -29,7 +29,7 @@ export default function Sidebar() {
       <div className='row'>
         <aside className='col-md-3'> */}
           <div className='card' style={{backgroundColor: "#16202a"}}>
-            <h5 className='card-header'>Dashboard</h5>
+            <h5 className='card-header'><a href='/dashboard' style={{color:'white', textDecoration:'none'}}>Dashboard</a></h5>
             <div className='list-group list-group-flush'>
               <a href='/profile' className='list-group-item list gropu-item-action'><CgProfile/> Profile</a>
               <a href='/ainaa' className='list-group-item list gropu-item-action'><GiMirrorMirror/> Ainaa</a>

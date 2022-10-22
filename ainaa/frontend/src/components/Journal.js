@@ -79,7 +79,6 @@ export default function AddJournals(){
                     <div className='card' style={{backgroundColor: "#16202a"}} >
                         <h5 className="card-header">Create Journal</h5>
                         <div className="card-body">
-                            
                                 <div className="mb-3">
                                     <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
                                     <div className="col-sm-10">
@@ -89,7 +88,7 @@ export default function AddJournals(){
                                 <div className="mb-3">
                                     <label htmlFor="Description" className="col-sm-2 col-form-label">Description</label>
                                     <div className="col-sm-10">
-                                    <textarea defaultValue={journalData.description} className="form-control" onChange={handleChange}  placeholder="Enter description" name = 'description'required/>
+                                    <textarea defaultValue={journalData.description} className="form-control" rows="10" onChange={handleChange}  placeholder="Enter description" name = 'description'required/>
                                     </div>
                                 </div>
                                 

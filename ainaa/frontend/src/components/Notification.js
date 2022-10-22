@@ -47,7 +47,7 @@ export default function Notification(){
                     <Sidebar/>
                 </aside>
                 <section className="col-md-9">
-                <div className='card' >
+                <div className='card' style={{backgroundColor: "#16202a",  color:'white'}}>
                         <h5 className="card-header">Notification list </h5>
                         <div className="card-body">
                         {Array.from(notifData).map((notification,index) =>

@@ -42,13 +42,13 @@ export default function Login() {
           console.log(localStorage.getItem('userLoginStatus'));
 
           axios.post('/api/loggeduser',loggedFormData).then((response)=>{
-          const id=response.data.id;
-          localStorage.setItem('loggeduser',id);
-          console.log(localStorage.getItem('loggeduser'));
+            const id=response.data.id;
+            localStorage.setItem('loggeduser',id);
+            console.log(localStorage.getItem('loggeduser'));
 
-          window.location.href='/dashboard';
-          
-          event.preventDefault();
+            window.location.href='/dashboard';
+            
+            event.preventDefault();
           
         } );  
   

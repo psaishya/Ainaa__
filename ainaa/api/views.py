@@ -55,6 +55,8 @@ def Loggeduser(request):
         # return JsonResponse(userdata,safe=false)
         return JsonResponse({'id':userdata[0].userId})
 
+
+
 #this view is for listing all the tasks
 class TaskList(generics.ListCreateAPIView):
     queryset=models.Task.objects.all() 
@@ -118,3 +120,11 @@ class Notificationdelete(generics.RetrieveUpdateDestroyAPIView):
     serializer_class=NotificationtimeSerializer
 
         
+
+class completedTask(generics.ListCreateAPIView):
+    serializer_class=TimeSerializer
+
+    def get_queryset(self):
+        userId=self.kwargs['userId']
+        user=models.User.objects.get(pk=userId)
+        return models.Task.objects.filter(user=user,complete=True)

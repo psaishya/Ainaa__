@@ -24,6 +24,8 @@ urlpatterns = [
     path('journaltime/<int:pk>/',views.JTime.as_view()),
     path('usertask/<int:userId>',views.UserTask.as_view()),
     path('userjournal/<int:userId>',views.UserJournal.as_view()),
+    path('completedtask/<int:userId>',views.completedTask.as_view()),
+
     
 
     path('notime/<int:user_id>/',views.NotificationTime.as_view()),
