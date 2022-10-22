@@ -7,11 +7,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-<<<<<<< HEAD
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer
-=======
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer
->>>>>>> sk
+from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer,NotificationtimeSerializer
 from . import models
 # Create your views here.
 
