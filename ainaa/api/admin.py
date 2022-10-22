@@ -4,4 +4,5 @@ from . import models
 admin.site.register(models.User)
 admin.site.register(models.Task)
 admin.site.register(models.Notification)
+admin.site.register(models.Journal)
 

@@ -59,7 +59,7 @@ export default function Signup() {
       <div className="container mt-4">
         <div className="row">
           <div className="col-6 offset-3">
-            <div className="card">
+            <div className="card" style={{backgroundColor: "#16202a"}}>
               <h3 className="card-header">User Registration</h3>
               <div className="card-body">
                 <form>
@@ -160,7 +160,7 @@ export default function Signup() {
                     Signup
                   </button>
                   <div className="notregister" href="#" title="Register here">
-                            <a href="/login">Already registered? </a>
+                            <a href="/login" style={{color:'white'}}>Already registered? </a>
                          </div>
 
                   {userData.status=='success' && <p className='text-success'>Thanks for your registration. </p>}

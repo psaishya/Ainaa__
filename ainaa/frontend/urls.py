@@ -9,14 +9,17 @@ urlpatterns = [
     path('login',index),
     # path('logout',index),
     path('signup',index),
-    path('test',index),
+
     path('dashboard',index),
     path('updateprofile',index),
     path('profile',index),
  
     path('notification',index),
     path('viewgoals',index),    
+    path('viewjournals',index),
     path('addgoals',index),
+    path('addjournals',index),
+    
     path('ainaa',index)
     # path('home/<str:username>',index),
     # path('test/<str:username>',index),

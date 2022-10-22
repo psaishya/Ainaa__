@@ -42,13 +42,13 @@ export default function Login() {
           console.log(localStorage.getItem('userLoginStatus'));
 
           axios.post('/api/loggeduser',loggedFormData).then((response)=>{
-          const id=response.data.id;
-          localStorage.setItem('loggeduser',id);
-          console.log(localStorage.getItem('loggeduser'));
+            const id=response.data.id;
+            localStorage.setItem('loggeduser',id);
+            console.log(localStorage.getItem('loggeduser'));
 
-          window.location.href='/dashboard';
-          
-          event.preventDefault();
+            window.location.href='/dashboard';
+            
+            event.preventDefault();
           
         } );  
   
@@ -95,7 +95,7 @@ export default function Login() {
       <div className="container mt-4">
         <div className="row">
           <div className="col-6 offset-3">
-            <div className="card">
+            <div className="card" style={{backgroundColor: "#16202a"}}>
               <h3 className="card-header">User Login</h3>
               <div className="card-body">
                 {errorMsg&&<p className="text-danger">{errorMsg}</p>}
@@ -130,7 +130,7 @@ export default function Login() {
                     Login
                   </button>
                   <div className="notregister" href="#" title="Register here">
-                            <a href="/signup">Not registered yet? </a>
+                            <a href="/signup" style={{color:'white'}}>Not registered yet? </a>
                          </div>
                 </form>
               </div>

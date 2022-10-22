@@ -57,7 +57,7 @@ export default function UpdateProfile() {
     <div className='container mt-4'>
         <div className='row'>
             <section className='col-md-9'>
-                <div className='card'>
+                <div className='card' style={{backgroundColor: "#16202a"}}>
                 <h1 className='card-header'>Update your Profile </h1>
                 <div className='card-body'>
                 <div className="mb-3 row">
