@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { GiExitDoor } from 'react-icons/gi';
 
 // const baseurl=
 export default function ViewJournals() {
@@ -69,12 +70,18 @@ export default function ViewJournals() {
                 try{
                     axios.delete('/api/journaltime/'+journalid)
                     .then((response)=>{
-                        // window.location.reload();
-                        handlepagination(nexturl);
+                     
+                        if(nexturl==null&&prevurl!=null){
+                            handlepagination(prevurl);
+                            }
+                        else if (nexturl==null && prevurl==null){
+                            window.location.href='/viewjournals';  
+                        }
+                        else{handlepagination(nexturl);}
+                        Swal.fire('Success','Journal has been deleted.');
                    
-
                     });
-                    Swal.fire('Success','Journal has been deleted.');
+                    
                 }
                 catch(error){
                     Swal.fire('Error','Journal has not been deleted!');
@@ -112,7 +119,7 @@ export default function ViewJournals() {
                     // {taskdata.map((task,index)=>
                      {return(
                         <div key={index}>
-                        <p><h3>{journal.create}</h3></p>
+                        <h3>{journal.create}</h3>
                         <h5><b>{journal.title}</b></h5>
                         <p>{journal.description}</p>
                         <button onClick={()=>handledelete(journal.id)} className='btn btn-danger btn-sm active float-end me-2' ><i className="bi bi-trash3"></i> </button>

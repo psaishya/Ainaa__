@@ -7,11 +7,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse,HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import permissions
-<<<<<<< HEAD
-from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,UpdatetaskSerializer,NotificationtimeSerializer
-=======
 from .serializers import NotificationSerializer, UserSerializer,TaskSerializer,TimeSerializer,NotificationtimeSerializer,UpdatetaskSerializer,JournalSerializer,JTimeSerializer,UpdatejournalSerializer
->>>>>>> 1b6e896800a676f9a66c2648149dd2dad8579022
 from . import models
 from rest_framework.pagination import PageNumberPagination
 # Create your views here.
