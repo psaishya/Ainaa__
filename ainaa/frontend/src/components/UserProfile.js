@@ -33,7 +33,7 @@ export default function UserProfile() {
     // console.log(userData);
   return (
    <>
-   {loggeduser}
+   
   
     <div className='container mt-4'>
         <div className='row'>

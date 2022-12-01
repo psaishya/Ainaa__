@@ -24,7 +24,6 @@ export default function Signup() {
   };
   const submitForm=(event)=>{
     console.log(userData);
-    alert(userData);
     const userFormData=new FormData();
     userFormData.append("firstName",userData.firstname)
     userFormData.append("lastName",userData.lastname)
