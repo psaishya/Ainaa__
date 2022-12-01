@@ -22,6 +22,7 @@ import ViewTasks from './ViewGoals';
 import Ainaa from './Ainaa';
 import AddJournals from './Journal';
 import ViewJournals from './ViewsJournal';
+import Forgotpw from './Forgotpw';
 
 
 document.body.style.backgroundColor='#6274a1';
@@ -69,6 +70,8 @@ export default function Main() {
                 <Route exact path='/notification' element ={<Notification/>}/>
                 {/* <Route exact path='/editgoal/:taskid' element={<EditGoal/>}/> */}
                 <Route exact path='/ainaa' element={ <Ainaa/>}/>
+                <Route exact path='/forgot' element={ <Forgotpw/>}/>
+
 
 
             </Routes>
