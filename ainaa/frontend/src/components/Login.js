@@ -130,8 +130,12 @@ export default function Login() {
                     Login
                   </button>
                   <div className="notregister" href="#" title="Register here">
+                            <a href="/forgot" style={{color:'white'}}>Forgot password </a>
+                         </div>
+                  <div className="notregister" href="#" title="Register here">
                             <a href="/signup" style={{color:'white'}}>Not registered yet? </a>
                          </div>
+
                 </form>
               </div>
             </div>

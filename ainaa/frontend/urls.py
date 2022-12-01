@@ -20,6 +20,8 @@ urlpatterns = [
     path('addgoals',index),
     path('addjournals',index),
     
+        path('forgot',index),
+
     path('ainaa',index),
     path('canvasjs.min.js',index)
     # path('home/<str:username>',index),
