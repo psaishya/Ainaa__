@@ -10,7 +10,6 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 export default function Dashboard() {
   const [totalgoals,settotalgoals]=useState([]);
   const [completedgoals,setcompletedgoals]=useState([]);
-  const [intext,settext]=useState('');
   const userId=localStorage.getItem('loggeduser');
  
   useEffect(()=>{
@@ -34,12 +33,7 @@ export default function Dashboard() {
     }catch(error){
       console.log(error);
     }
-    const compper=(completedgoals.length/totalgoals.length)*100;
-    settext(((completedgoals.length/totalgoals.length)*100)<50?'Focus on your tasks!'
-  :((completedgoals.length/totalgoals.length)*100)>=50&&((completedgoals.length/totalgoals.length)*100)<75?'Keep going!'
-  :((completedgoals.length/totalgoals.length)*100)>=75&&((completedgoals.length/totalgoals.length)*100)<100?'You are doing great!'
-  :((completedgoals.length/totalgoals.length)*100)==100?'Great! You have all tasks completed'
-  :'Completion');
+    
 
   
   },[]);

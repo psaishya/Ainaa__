@@ -70,11 +70,15 @@ export default function ViewJournals() {
                     axios.delete('/api/journaltime/'+journalid)
                     .then((response)=>{
                         // window.location.reload();
-                        handlepagination(nexturl);
+                       
+                            handlepagination(nexturl);
+                       
+                        
+                    
                    
-
+                Swal.fire('Success','Journal has been deleted.');
                     });
-                    Swal.fire('Success','Journal has been deleted.');
+                    
                 }
                 catch(error){
                     Swal.fire('Error','Journal has not been deleted!');
