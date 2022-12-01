@@ -10,8 +10,8 @@ function Footer() {
   <div className="container-fluid ">
   
   <div className="text-center p-3" style={{backgroundColor: "#16202a"}}>
-    © 2020 Copyright:
-    <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    © 2022 Copyright:
+    <a className="text-white" href="http://127.0.0.1:8000/">Ainaa.com</a>
   </div>
     </div>
 </footer>
