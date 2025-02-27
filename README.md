@@ -51,10 +51,10 @@ npm start
 ```
 
 ## Usage 
-  Register  a new account or Login  with existing credentials.
-  Use the Dashboard  to track your progress.
-  Add Goals  and Journals  to manage your tasks and reflections.
-  Update Profile  to keep your personal information current.
+  - **Register  a new account or Login  with existing credentials.**
+  - **Use the Dashboard  to track your progress.**
+  - **Add Goals  and Journals  to manage your tasks and reflections.**
+  - **Update Profile  to keep your personal information current.**
 
 
 ### Notes:
