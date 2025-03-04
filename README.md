@@ -8,10 +8,8 @@ This project was developed as part of the **COMP-206** course at Kathmandu Unive
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
@@ -29,26 +27,6 @@ This project was developed as part of the **COMP-206** course at Kathmandu Unive
 - **Database**: PostgreSQL
 - **Other Tools**: Git, GitHub
 
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/psaishya/Ainaa__.git
-   cd Ainaa__
-   ```
-## Install the requiried dependencies
-Set up the PostgreSQL database and configure the connection in settings.py. 
-
-Apply migrations: 
-``` bash
-python manage.py migrate
-```
-
-## Run the development server:
-``` bash 
-python manage.py runserver
-npm start
-```
 
 ## Usage 
   - **Register  a new account or Login  with existing credentials.**
@@ -57,8 +35,3 @@ npm start
   - **Update Profile  to keep your personal information current.**
 
 
-### Notes:
-- The `README.md` file includes all key features, technologies, installation instructions, and usage details based on the report.
-- Adjust any specific configuration details or additional dependencies as needed based on the actual project setup.
-- Ensure you include a `LICENSE.md` file if you plan to distribute the project under the MIT License.
-  
